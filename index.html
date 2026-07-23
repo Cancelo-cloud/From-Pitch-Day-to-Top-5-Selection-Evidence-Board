@@ -1,511 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pitch Day → Top 5: Selection Evidence Board</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Pitch Day to Top 5 · Selection Evidence Board</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-            min-height: 100vh;
-            background: #0b0d10;
-            display: flex;
-            justify-content: center;
-            padding: 2rem 1rem;
-        }
+    :root {
+      --blue-black: #061529;
+      --blue-deep: #0b1f3a;
+      --blue-card: rgba(9, 30, 58, .92);
+      --blue-border: rgba(138, 174, 217, .28);
+      --blue-text: #eaf3ff;
+      --blue-muted: #a9bdd6;
+      --blue-accent: #66b8ff;
+      --blue-gold: #f4c95d;
+      --card-bg: rgba(9, 30, 58, .92);
+      --text-muted: #b0c7dd;
+      --font-scale: 1.05;
+    }
 
-        /* MAIN BOARD — uses your uploaded image as background */
-        .board {
-            max-width: 1500px;
-            width: 100%;
-            background-image: url('image.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 32px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-            backdrop-filter: brightness(0.92) saturate(1.1);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.2s;
-        }
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background: var(--blue-black);
+      color: var(--blue-text);
+      min-height: 100vh;
+      padding: 20px 16px;
+    }
 
-        /* semi-transparent overlay so text is readable */
-        .board-overlay {
-            backdrop-filter: blur(2px);
-            background: rgba(10, 12, 16, 0.55);
-            border-radius: 24px;
-            padding: 2rem 1.8rem;
-        }
+    .page {
+      max-width: 1480px;
+      margin: 0 auto;
+    }
 
-        h1 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            color: #ffffff;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
-            margin-bottom: 0.2rem;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
+    /* --- FULL-WIDTH HEADER --- */
+    .hero {
+      width: 100%;
+      padding: 24px 28px 20px;
+      background: rgba(5, 17, 36, .78);
+      border: 1px solid var(--blue-border);
+      border-radius: 20px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(6px);
+    }
 
-        .subhead {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            border-left: 3px solid #fbbf24;
-            padding-left: 1rem;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 0 12px 12px 0;
-            display: inline-block;
-            padding: 0.4rem 1.2rem 0.4rem 1rem;
-        }
+    .eyebrow {
+      display: inline-block;
+      font-size: calc(11px * var(--font-scale));
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
 
-        /* 3‑column grid — no horizontal scroll */
-        .columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1.8rem;
-            align-items: stretch;
-        }
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(34px * var(--font-scale));
+      font-weight: 700;
+      line-height: 1.08;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
 
-        /* CARD STYLES */
-        .card {
-            background: rgba(18, 22, 28, 0.82);
-            backdrop-filter: blur(6px);
-            border-radius: 20px;
-            padding: 1.5rem 1.2rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-            transition: transform 0.15s ease, box-shadow 0.2s;
-            height: fit-content;
-            max-height: 600px;
-            overflow-y: auto;
-        }
+    .hero h1 span {
+      display: inline-block;
+      font-size: calc(18px * var(--font-scale));
+      font-weight: 400;
+      color: var(--blue-gold);
+      background: rgba(244, 201, 93, .12);
+      padding: 0 14px;
+      border-radius: 40px;
+      border: 1px solid rgba(244, 201, 93, .15);
+      margin-left: 10px;
+    }
 
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
-        }
+    .subhead {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(16px * var(--font-scale));
+      color: var(--blue-muted);
+      margin-top: 8px;
+      border-left: 3px solid var(--blue-gold);
+      padding-left: 16px;
+      opacity: .85;
+    }
 
-        .card h2 {
-            color: #fbbf24;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
-            border-bottom: 2px solid rgba(251, 191, 36, 0.2);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    /* --- 3-COLUMN BOARD --- */
+    .board {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 28px;
+      align-items: start;
+    }
 
-        .card h2 span {
-            font-size: 1.4rem;
-        }
+    .column {
+      background: rgba(5, 17, 36, .60);
+      border: 1px solid var(--blue-border);
+      border-radius: 18px;
+      padding: 16px 14px 14px;
+      backdrop-filter: blur(4px);
+    }
 
-        /* Organisation cards: list of pitchers */
-        .pitcher-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
+    .column-header {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--blue-border);
+    }
 
-        .pitcher-item {
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.5rem 0.8rem;
-            border-radius: 10px;
-            color: #e8edf5;
-            font-size: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-left: 3px solid transparent;
-            transition: background 0.15s;
-            cursor: default;
-        }
+    .stage {
+      display: inline-block;
+      font-size: calc(10px * var(--font-scale));
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--blue-accent);
+      background: rgba(102, 184, 255, .10);
+      border: 1px solid var(--blue-border);
+      padding: 2px 10px;
+      border-radius: 40px;
+      margin-bottom: 6px;
+    }
 
-        .pitcher-item:hover {
-            background: rgba(255, 255, 255, 0.09);
-            border-left-color: #fbbf24;
-        }
+    .column h2 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
 
-        .pitcher-item .badge {
-            background: rgba(251, 191, 36, 0.15);
-            color: #fbbf24;
-            font-size: 0.7rem;
-            padding: 0.15rem 0.6rem;
-            border-radius: 20px;
-            font-weight: 500;
-        }
+    .column .hint {
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
 
-        .pitcher-item .resource-link {
-            color: #60a5fa;
-            font-size: 0.75rem;
-            text-decoration: none;
-            background: rgba(96, 165, 250, 0.1);
-            padding: 0.1rem 0.6rem;
-            border-radius: 12px;
-            transition: background 0.15s;
-        }
+    /* --- CARDS --- */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--blue-border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      transition: background 0.15s;
+    }
 
-        .pitcher-item .resource-link:hover {
-            background: rgba(96, 165, 250, 0.25);
-            text-decoration: underline;
-        }
+    .card:hover {
+      background: rgba(14, 43, 78, .92);
+    }
 
-        /* Region cards: top 1–3 with judge reflections */
-        .region-entry {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            padding: 0.7rem 0.9rem;
-            margin-bottom: 0.8rem;
-            border-left: 3px solid #34d399;
-        }
+    .card h3 {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(17px * var(--font-scale));
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 2px 0;
+    }
 
-        .region-entry strong {
-            color: #a7f3d0;
-            font-weight: 600;
-            display: block;
-            font-size: 0.95rem;
-        }
+    .card .sub {
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      display: block;
+      margin-top: 2px;
+    }
 
-        .region-entry .reflection {
-            color: #cbd5e1;
-            font-size: 0.8rem;
-            margin-top: 4px;
-            line-height: 1.4;
-            padding-left: 4px;
-            border-left: 2px solid rgba(52, 211, 153, 0.2);
-            padding-left: 8px;
-        }
+    .card p,
+    .card li {
+      font-size: calc(14px * var(--font-scale));
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
 
-        /* Top 5 cards: reasons they advanced */
-        .top5-entry {
-            background: rgba(255, 255, 255, 0.04);
-            border-radius: 14px;
-            padding: 0.9rem 1rem;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(251, 191, 36, 0.15);
-            transition: background 0.15s;
-        }
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0 0 0;
+    }
 
-        .top5-entry:hover {
-            background: rgba(255, 255, 255, 0.07);
-        }
+    .card ul li {
+      padding: 4px 0 4px 18px;
+      position: relative;
+    }
 
-        .top5-entry .name {
-            font-weight: 700;
-            color: #ffffff;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
+    .card ul li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--blue-gold);
+    }
 
-        .top5-entry .name .region-tag {
-            font-weight: 400;
-            font-size: 0.7rem;
-            background: rgba(96, 165, 250, 0.15);
-            color: #93c5fd;
-            padding: 0.1rem 0.7rem;
-            border-radius: 20px;
-        }
+    .mini-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 6px;
+    }
 
-        .top5-entry .reasons {
-            font-size: 0.8rem;
-            color: #d1d9e8;
-            margin-top: 4px;
-            padding-left: 4px;
-            list-style: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 10px;
-        }
+    .mini-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: calc(13px * var(--font-scale));
+      padding: 5px 8px;
+      background: rgba(255, 255, 255, .04);
+      border-radius: 8px;
+      border-left: 2px solid var(--blue-accent);
+      color: var(--blue-text);
+    }
 
-        .top5-entry .reasons li {
-            display: inline;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 0.1rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            color: #b9c7e0;
-        }
+    .mini-item .tag {
+      font-size: calc(10px * var(--font-scale));
+      color: var(--blue-muted);
+      background: rgba(255, 255, 255, .06);
+      padding: 1px 8px;
+      border-radius: 30px;
+    }
 
-        /* custom scroll */
-        .card::-webkit-scrollbar {
-            width: 4px;
-        }
-        .card::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-        .card::-webkit-scrollbar-thumb {
-            background: #fbbf24;
-            border-radius: 10px;
-        }
+    .pill {
+      display: inline-block;
+      font-size: calc(10px * var(--font-scale));
+      font-weight: 700;
+      background: rgba(102, 184, 255, .12);
+      color: var(--blue-accent);
+      padding: 1px 10px;
+      border-radius: 30px;
+      border: 1px solid var(--blue-border);
+    }
 
-        /* mobile: stack vertically, still readable */
-        @media (max-width: 900px) {
-            .columns {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .board {
-                padding: 1rem;
-            }
-            .board-overlay {
-                padding: 1rem;
-            }
-            h1 {
-                font-size: 1.6rem;
-            }
-        }
+    .pill.gold {
+      background: rgba(244, 201, 93, .12);
+      color: var(--blue-gold);
+      border-color: rgba(244, 201, 93, .15);
+    }
 
-        /* small extra: bottom note */
-        .footer-note {
-            margin-top: 2rem;
-            text-align: right;
-            color: rgba(255, 255, 255, 0.2);
-            font-size: 0.7rem;
-            letter-spacing: 0.5px;
-            border-top: 1px solid rgba(255, 255, 255, 0.03);
-            padding-top: 0.8rem;
-        }
-    </style>
+    .button-link {
+      display: inline-block;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-accent);
+      text-decoration: none;
+      background: rgba(102, 184, 255, .08);
+      padding: 4px 12px;
+      border-radius: 30px;
+      border: 1px solid var(--blue-border);
+      margin-top: 6px;
+      transition: background 0.15s;
+    }
+
+    .button-link:hover {
+      background: rgba(102, 184, 255, .18);
+    }
+
+    /* --- TOP 5 LIST (single scrollable column) --- */
+    .top5-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .top5-list::-webkit-scrollbar {
+      width: 4px;
+    }
+    .top5-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, .04);
+      border-radius: 10px;
+    }
+    .top5-list::-webkit-scrollbar-thumb {
+      background: var(--blue-gold);
+      border-radius: 10px;
+    }
+
+    .top5-entry {
+      background: rgba(9, 30, 58, .90);
+      border: 1px solid var(--blue-border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      transition: background 0.15s;
+      border-left: 3px solid var(--blue-gold);
+    }
+
+    .top5-entry:hover {
+      background: rgba(14, 43, 78, .95);
+    }
+
+    .top5-entry .name {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: calc(17px * var(--font-scale));
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .top5-entry .name .region-tag {
+      font-size: calc(11px * var(--font-scale));
+      font-weight: 400;
+      background: rgba(102, 184, 255, .12);
+      color: var(--blue-accent);
+      padding: 1px 10px;
+      border-radius: 30px;
+      border: 1px solid var(--blue-border);
+    }
+
+    .top5-entry .reasons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 10px;
+      margin-top: 5px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .top5-entry .reasons li {
+      font-size: calc(12px * var(--font-scale));
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, .04);
+      padding: 2px 10px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, .04);
+      display: inline;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1100px) {
+      .board {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .hero h1 {
+        font-size: calc(28px * var(--font-scale));
+      }
+      .hero h1 span {
+        font-size: calc(16px * var(--font-scale));
+        margin-left: 0;
+        display: inline-block;
+        margin-top: 6px;
+      }
+      .top5-list {
+        max-height: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px 10px;
+      }
+      .hero {
+        padding: 18px 16px;
+      }
+      .hero h1 {
+        font-size: calc(22px * var(--font-scale));
+      }
+      .hero h1 span {
+        font-size: calc(14px * var(--font-scale));
+        display: block;
+        margin-left: 0;
+        margin-top: 6px;
+      }
+      .subhead {
+        font-size: calc(13px * var(--font-scale));
+        padding-left: 12px;
+      }
+      .column {
+        padding: 12px 10px;
+      }
+      .column h2 {
+        font-size: calc(18px * var(--font-scale));
+      }
+      .top5-entry .name {
+        font-size: calc(15px * var(--font-scale));
+      }
+      .top5-list {
+        max-height: 340px;
+      }
+    }
+
+    /* subtle arrow between columns (desktop only) */
+    @media (min-width: 1101px) {
+      .board {
+        position: relative;
+      }
+      .column:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 28px;
+        color: var(--blue-gold);
+        opacity: 0.5;
+        font-weight: 300;
+      }
+      .column:nth-child(1)::after {
+        left: calc(33.33% - 14px);
+      }
+      .column:nth-child(2)::after {
+        left: calc(66.66% - 14px);
+      }
+    }
+
+    /* footer */
+    .footer-note {
+      margin-top: 30px;
+      text-align: center;
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      opacity: 0.5;
+      border-top: 1px solid var(--blue-border);
+      padding-top: 18px;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+  </style>
 </head>
 <body>
+
+  <div class="page">
+
+    <!-- FULL-WIDTH HEADER -->
+    <header class="hero">
+      <div class="eyebrow">BB Dashboard · Selection Evidence</div>
+      <h1>
+        From Pitch Day to Top 5
+        <span>🏆 ANEW Hotel · 2026</span>
+      </h1>
+      <div class="subhead">A clear evidence trail: Organisations → Regional Top 1–3 → Final Top 5</div>
+    </header>
+
+    <!-- 3-COLUMN BOARD -->
     <div class="board">
-        <div class="board-overlay">
 
-            <h1>
-                🏆 From Pitch Day → Top 5
-                <span style="font-size:1rem; font-weight:400; color:#fbbf24; background:rgba(0,0,0,0.3); padding:0.2rem 1rem; border-radius:40px;">Selection Evidence Board</span>
-            </h1>
-            <div class="subhead">CCC Academy Library · 2026 · 3 columns · all visible without horizontal scroll</div>
+      <!-- COLUMN 1: ORGANISATIONS -->
+      <section class="column">
+        <div class="column-header">
+          <span class="stage">Step 1</span>
+          <h2>Organisations</h2>
+          <div class="hint">All pitchers · click to expand</div>
+        </div>
 
-            <div class="columns">
+        <div class="card">
+          <h3>Love Umngeni</h3>
+          <span class="sub">12 pitchers</span>
+          <ul>
+            <li>Ayanda M. <span class="pill">PPTX</span></li>
+            <li>Sipho N. <span class="pill">PPTX</span></li>
+            <li>Zanele K. <span class="pill">PPTX</span></li>
+            <li>Thabo R. <span class="pill">PPTX</span></li>
+            <li style="opacity:0.5; font-size:calc(12px * var(--font-scale));">+ 8 more …</li>
+          </ul>
+        </div>
 
-                <!-- COLUMN 1: ORGANISATIONS + all pitchers -->
-                <div class="card">
-                    <h2><span>🏛️</span> Organisations</h2>
-                    <div class="pitcher-list">
+        <div class="card">
+          <h3>Use-it</h3>
+          <span class="sub">8 pitchers</span>
+          <ul>
+            <li>Nomsa D. <span class="pill">PPTX</span></li>
+            <li>Bongani S. <span class="pill">PPTX</span></li>
+            <li>Lindiwe M. <span class="pill">PPTX</span></li>
+            <li style="opacity:0.5; font-size:calc(12px * var(--font-scale));">+ 5 more …</li>
+          </ul>
+        </div>
 
-                        <div class="pitcher-item">
-                            <span>📌 Howick Hub</span>
-                            <span class="badge">12 pitchers</span>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Ayanda M.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Sipho N.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Zanele K.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Thabo R.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item" style="opacity:0.5; font-size:0.75rem; justify-content:center;">
-                            <span>+ 8 more pitchers …</span>
-                        </div>
+        <div class="card">
+          <h3>WESSA</h3>
+          <span class="sub">6 pitchers</span>
+          <ul>
+            <li>Kabelo T. <span class="pill">PPTX</span></li>
+            <li>Reneilwe P. <span class="pill">PPTX</span></li>
+            <li style="opacity:0.5; font-size:calc(12px * var(--font-scale));">+ 4 more …</li>
+          </ul>
+        </div>
 
-                        <div class="pitcher-item" style="margin-top:8px; border-top:1px solid rgba(255,255,255,0.05);">
-                            <span>📌 Pietermaritzburg Central</span>
-                            <span class="badge">8 pitchers</span>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Nomsa D.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Bongani S.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Lindiwe M.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item" style="opacity:0.5; font-size:0.75rem; justify-content:center;">
-                            <span>+ 5 more …</span>
-                        </div>
+        <div class="card">
+          <h3>ERS</h3>
+          <span class="sub">5 pitchers</span>
+          <ul>
+            <li>Vuyo J. <span class="pill">PPTX</span></li>
+            <li>Themba L. <span class="pill">PPTX</span></li>
+            <li style="opacity:0.5; font-size:calc(12px * var(--font-scale));">+ 3 more …</li>
+          </ul>
+        </div>
 
-                        <div class="pitcher-item" style="margin-top:8px; border-top:1px solid rgba(255,255,255,0.05);">
-                            <span>📌 Durban Region</span>
-                            <span class="badge">6 pitchers</span>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Kabelo T.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Reneilwe P.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
+        <div class="card">
+          <h3>INR</h3>
+          <span class="sub">4 pitchers</span>
+          <ul>
+            <li>Nosipho M. <span class="pill">PPTX</span></li>
+            <li>Sibusiso Z. <span class="pill">PPTX</span></li>
+            <li style="opacity:0.5; font-size:calc(12px * var(--font-scale));">+ 2 more …</li>
+          </ul>
+        </div>
 
-                        <div class="pitcher-item" style="margin-top:8px; border-top:1px solid rgba(255,255,255,0.05);">
-                            <span>📌 Eastern Cape</span>
-                            <span class="badge">5 pitchers</span>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Vuyo J.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Themba L.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
+        <div style="font-size:calc(11px * var(--font-scale)); color:var(--blue-muted); opacity:0.5; text-align:center; margin-top:10px;">
+          ⚡ Click <span style="color:var(--blue-accent);">PPTX</span> to view business &amp; pitch deck
+        </div>
+      </section>
 
-                        <div class="pitcher-item" style="margin-top:8px; border-top:1px solid rgba(255,255,255,0.05);">
-                            <span>📌 Impendle Region</span>
-                            <span class="badge">4 pitchers</span>
-                        </div>
-                        <div class="pitcher-item">
-                            <span>  • Nosipho M.</span>
-                            <a href="#" class="resource-link">📎 PPTX</a>
-                        </div>
-                    </div>
-                    <div style="margin-top:12px; font-size:0.75rem; color:rgba(255,255,255,0.2); text-align:center;">
-                        ⚡ Click <span style="color:#60a5fa;">📎 PPTX</span> to view business &amp; pitch deck
-                    </div>
-                </div>
+      <!-- COLUMN 2: REGIONS -->
+      <section class="column">
+        <div class="column-header">
+          <span class="stage">Step 2</span>
+          <h2>Regions</h2>
+          <div class="hint">Top 1–3 · with judge reflections</div>
+        </div>
 
-                <!-- COLUMN 2: REGIONS → top 1–3 + judge reflections -->
-                <div class="card">
-                    <h2><span>📍</span> Regions · Top 1–3</h2>
+        <div class="card">
+          <h3>🏔️ Howick Region</h3>
+          <div style="font-size:calc(14px * var(--font-scale)); color:var(--blue-text); margin:4px 0 2px;">
+            🥇 Ayanda M. · 🥈 Sipho N.
+          </div>
+          <p style="font-size:calc(13px * var(--font-scale)); color:var(--text-muted); border-left:2px solid var(--blue-gold); padding-left:10px; margin-top:4px;">
+            “Ayanda’s financial model was the most resilient. Sipho showed exceptional community traction.”
+          </p>
+        </div>
 
-                    <div class="region-entry">
-                        <strong>🏔️ Howick Region</strong>
-                        <div style="font-size:0.85rem; color:#e2e8f0; margin:4px 0 2px;">🥇 Ayanda M. · 🥈 Sipho N.</div>
-                        <div class="reflection">🧑‍⚖️ <em>“Ayanda’s financial model was the most resilient. Sipho showed exceptional community traction.”</em></div>
-                    </div>
+        <div class="card">
+          <h3>🏙️ Pietermaritzburg Central</h3>
+          <div style="font-size:calc(14px * var(--font-scale)); color:var(--blue-text); margin:4px 0 2px;">
+            🥇 Nomsa D. · 🥈 Bongani S.
+          </div>
+          <p style="font-size:calc(13px * var(--font-scale)); color:var(--text-muted); border-left:2px solid var(--blue-gold); padding-left:10px; margin-top:4px;">
+            “Nomsa’s pitch was structurally complete. Bongani’s operational plan stood out.”
+          </p>
+        </div>
 
-                    <div class="region-entry">
-                        <strong>🏙️ Pietermaritzburg Central</strong>
-                        <div style="font-size:0.85rem; color:#e2e8f0; margin:4px 0 2px;">🥇 Nomsa D. · 🥈 Bongani S.</div>
-                        <div class="reflection">🧑‍⚖️ <em>“Nomsa’s pitch was structurally complete. Bongani’s operational plan stood out.”</em></div>
-                    </div>
+        <div class="card">
+          <h3>🌊 Durban Region</h3>
+          <div style="font-size:calc(14px * var(--font-scale)); color:var(--blue-text); margin:4px 0 2px;">
+            🥇 Kabelo T. · 🥈 Reneilwe P.
+          </div>
+          <p style="font-size:calc(13px * var(--font-scale)); color:var(--text-muted); border-left:2px solid var(--blue-gold); padding-left:10px; margin-top:4px;">
+            “Kabelo’s scalability hypothesis was compelling. Reneilwe’s team was the strongest.”
+          </p>
+        </div>
 
-                    <div class="region-entry">
-                        <strong>🌊 Durban Region</strong>
-                        <div style="font-size:0.85rem; color:#e2e8f0; margin:4px 0 2px;">🥇 Kabelo T. · 🥈 Reneilwe P.</div>
-                        <div class="reflection">🧑‍⚖️ <em>“Kabelo’s scalability hypothesis was compelling. Reneilwe’s team was the strongest.”</em></div>
-                    </div>
+        <div class="card">
+          <h3>🌄 Eastern Cape</h3>
+          <div style="font-size:calc(14px * var(--font-scale)); color:var(--blue-text); margin:4px 0 2px;">
+            🥇 Vuyo J. · 🥈 Themba L.
+          </div>
+          <p style="font-size:calc(13px * var(--font-scale)); color:var(--text-muted); border-left:2px solid var(--blue-gold); padding-left:10px; margin-top:4px;">
+            “Vuyo’s supply chain model was innovative. Themba’s cost structure was lean.”
+          </p>
+        </div>
 
-                    <div class="region-entry">
-                        <strong>🌄 Eastern Cape</strong>
-                        <div style="font-size:0.85rem; color:#e2e8f0; margin:4px 0 2px;">🥇 Vuyo J. · 🥈 Themba L.</div>
-                        <div class="reflection">🧑‍⚖️ <em>“Vuyo’s supply chain model was innovative. Themba’s cost structure was lean.”</em></div>
-                    </div>
+        <div class="card">
+          <h3>🌿 Impendle Region</h3>
+          <div style="font-size:calc(14px * var(--font-scale)); color:var(--blue-text); margin:4px 0 2px;">
+            🥇 Nosipho M. · 🥈 Sibusiso Z.
+          </div>
+          <p style="font-size:calc(13px * var(--font-scale)); color:var(--text-muted); border-left:2px solid var(--blue-gold); padding-left:10px; margin-top:4px;">
+            “Nosipho’s community engagement was exceptional — a clear local leader.”
+          </p>
+        </div>
 
-                    <div class="region-entry">
-                        <strong>🌿 Impendle Region</strong>
-                        <div style="font-size:0.85rem; color:#e2e8f0; margin:4px 0 2px;">🥇 Nosipho M. · 🥈 Sibusiso Z.</div>
-                        <div class="reflection">🧑‍⚖️ <em>“Nosipho’s community engagement was exceptional — a clear local leader.”</em></div>
-                    </div>
+        <div style="font-size:calc(11px * var(--font-scale)); color:var(--blue-muted); opacity:0.4; text-align:center; border-top:1px solid var(--blue-border); padding-top:10px; margin-top:4px;">
+          📋 Top 3 Growers Final Business Assessment Update
+        </div>
+      </section>
 
-                    <div style="margin-top:16px; font-size:0.7rem; color:rgba(255,255,255,0.2); border-top:1px solid rgba(255,255,255,0.03); padding-top:8px; text-align:center;">
-                        📋 Top 3 Growers Final Business Assessment Update
-                    </div>
-                </div>
+      <!-- COLUMN 3: TOP 5 (one list, scrollable) -->
+      <section class="column">
+        <div class="column-header">
+          <span class="stage">Step 3</span>
+          <h2>Top 5 Finalists</h2>
+          <div class="hint">Selected for the next stage</div>
+        </div>
 
-                <!-- COLUMN 3: TOP 5 → reasons they advanced -->
-                <div class="card">
-                    <h2><span>🔥</span> Top 5 · Finalists</h2>
+        <div class="top5-list">
+          <div class="top5-entry">
+            <div class="name">🥇 Ayanda M. <span class="region-tag">Howick</span></div>
+            <ul class="reasons">
+              <li>💡 Unique business model</li>
+              <li>📊 Pitch: 94%</li>
+              <li>📈 Strong financials</li>
+              <li>🌍 Regional impact</li>
+            </ul>
+          </div>
 
-                    <div class="top5-entry">
-                        <div class="name">
-                            🥇 Ayanda M.
-                            <span class="region-tag">Howick</span>
-                        </div>
-                        <ul class="reasons">
-                            <li>💡 Unique business model</li>
-                            <li>📊 Pitch: 94%</li>
-                            <li>📈 Strong financials</li>
-                            <li>🌍 Regional impact</li>
-                        </ul>
-                    </div>
+          <div class="top5-entry">
+            <div class="name">🥈 Nomsa D. <span class="region-tag">Pietermaritzburg</span></div>
+            <ul class="reasons">
+              <li>💡 Operational excellence</li>
+              <li>📊 Pitch: 91%</li>
+              <li>💰 Scalable unit economics</li>
+              <li>🤝 Team strength</li>
+            </ul>
+          </div>
 
-                    <div class="top5-entry">
-                        <div class="name">
-                            🥈 Nomsa D.
-                            <span class="region-tag">Pietermaritzburg</span>
-                        </div>
-                        <ul class="reasons">
-                            <li>💡 Operational excellence</li>
-                            <li>📊 Pitch: 91%</li>
-                            <li>💰 Scalable unit economics</li>
-                            <li>🤝 Team strength</li>
-                        </ul>
-                    </div>
+          <div class="top5-entry">
+            <div class="name">🥉 Kabelo T. <span class="region-tag">Durban</span></div>
+            <ul class="reasons">
+              <li>💡 High scalability</li>
+              <li>📊 Pitch: 89%</li>
+              <li>🧩 Market fit</li>
+              <li>📋 Ready for next stage</li>
+            </ul>
+          </div>
 
-                    <div class="top5-entry">
-                        <div class="name">
-                            🥉 Kabelo T.
-                            <span class="region-tag">Durban</span>
-                        </div>
-                        <ul class="reasons">
-                            <li>💡 High scalability</li>
-                            <li>📊 Pitch: 89%</li>
-                            <li>🧩 Market fit</li>
-                            <li>📋 Ready for next stage</li>
-                        </ul>
-                    </div>
+          <div class="top5-entry">
+            <div class="name">4️⃣ Vuyo J. <span class="region-tag">Eastern Cape</span></div>
+            <ul class="reasons">
+              <li>💡 Innovative supply chain</li>
+              <li>📊 Pitch: 87%</li>
+              <li>📉 Cost leadership</li>
+              <li>🌱 Growth potential</li>
+            </ul>
+          </div>
 
-                    <div class="top5-entry">
-                        <div class="name">
-                            4️⃣ Vuyo J.
-                            <span class="region-tag">Eastern Cape</span>
-                        </div>
-                        <ul class="reasons">
-                            <li>💡 Innovative supply chain</li>
-                            <li>📊 Pitch: 87%</li>
-                            <li>📉 Cost leadership</li>
-                            <li>🌱 Growth potential</li>
-                        </ul>
-                    </div>
+          <div class="top5-entry">
+            <div class="name">5️⃣ Nosipho M. <span class="region-tag">Impendle</span></div>
+            <ul class="reasons">
+              <li>💡 Community-driven</li>
+              <li>📊 Pitch: 85%</li>
+              <li>🏡 Local traction</li>
+              <li>🔮 Future leader</li>
+            </ul>
+          </div>
+        </div>
 
-                    <div class="top5-entry">
-                        <div class="name">
-                            5️⃣ Nosipho M.
-                            <span class="region-tag">Impendle</span>
-                        </div>
-                        <ul class="reasons">
-                            <li>💡 Community-driven</li>
-                            <li>📊 Pitch: 85%</li>
-                            <li>🏡 Local traction</li>
-                            <li>🔮 Future leader</li>
-                        </ul>
-                    </div>
+        <div style="font-size:calc(11px * var(--font-scale)); color:var(--blue-muted); opacity:0.4; text-align:center; border-top:1px solid var(--blue-border); padding-top:10px; margin-top:10px;">
+          ✅ Selected for ANEW Hotel · May 2026
+        </div>
+      </section>
 
-                    <div style="margin-top:12px; font-size:0.7rem; color:rgba(255,255,255,0.2); border-top:1px solid rgba(255,255,255,0.03); padding-top:8px; text-align:center;">
-                        ✅ Selected for next stage · May 2026
-                    </div>
-                </div>
+    </div>
 
-            </div> <!-- end columns -->
+    <div class="footer-note">
+      CCC Academy · Evidence from Pitch Days · #SelectionBoard · Green Beacons Consulting
+    </div>
 
-            <div class="footer-note">
-                CCC Academy · Evidence from Pitch Days · #SelectionBoard
-            </div>
+  </div>
 
-        </div> <!-- end overlay -->
-    </div> <!-- end board -->
 </body>
 </html>
