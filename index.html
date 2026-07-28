@@ -793,9 +793,6 @@
       .shelf-body {
         padding: 22px 18px 24px;
       }
-      .evidence-links, .selection-standard {
-        grid-template-columns: 1fr;
-      }
     }
   
     /* --- BLUE/GOLD SHELF THEME OVERRIDE --- */
@@ -889,82 +886,6 @@
     }
 
   
-
-    /* --- TOP 5 CHECKLIST CONTENT ONLY --- */
-    .top5-checklist {
-      display: grid;
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .check-section {
-      border: 1px solid rgba(244, 201, 93, .22);
-      background: rgba(9, 30, 58, .88);
-      border-radius: 16px;
-      padding: 16px 18px;
-      color: #d9e8fb;
-    }
-
-    .check-section h3 {
-      color: #ffffff !important;
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
-
-    .check-section ul {
-      margin-left: 20px;
-      line-height: 1.65;
-      color: #d9e8fb;
-    }
-
-    .check-section li {
-      margin-bottom: 5px;
-    }
-
-    .check-section strong {
-      color: var(--blue-gold) !important;
-    }
-
-    .selection-standard {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .standard-item {
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(255,255,255,.045);
-      border-radius: 12px;
-      padding: 11px 12px;
-      color: #eaf3ff;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .evidence-links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .evidence-link {
-      border: 1px dashed rgba(102,184,255,.35);
-      border-radius: 12px;
-      padding: 12px;
-      color: var(--blue-muted);
-      background: rgba(102,184,255,.06);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .evidence-link strong {
-      display: block;
-      color: var(--blue-gold) !important;
-      margin-bottom: 4px;
-    }
-
     /* --- FINAL VIEWER CLEANUP --- */
     .shelf-hero h2 {
       color: #ffffff !important;
@@ -1030,12 +951,19 @@
         </div>
 
         <button class="summary-card accordion-toggle" data-panel="org-useit-panel">
-          <div><h3>Use-it</h3><span class="sub">0 scored pitchers loaded</span></div><span class="plus">+</span>
+          <div><h3>Use-it</h3><span class="sub">9 reviewed · 2 selected</span></div><span class="plus">+</span>
         </button>
-        <div class="inline-panel" id="org-useit-panel">
-          <button class="grower-pill" data-grower-template><span>Grower 1 · Business Name</span><span class="open-small">open</span></button>
-          <button class="grower-pill" data-grower-template><span>Grower 2 · Business Name</span><span class="open-small">open</span></button>
-          <button class="grower-pill placeholder-pill" data-grower-template><span>+ 6 more pitchers</span><span class="open-small">add</span></button>
+                <div class="inline-panel" id="org-useit-panel">
+          <button class="grower-pill" data-org-business="melusi"><span>Melusi Mbotho · Inkazimulo Creche & Pre-School · 83 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="velile"><span>Velile Parkies · Recycling / Waste Recovery · 45 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="qinisio"><span>Qinisio Shozi · Starter Business · 42 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="patricia"><span>Patricia Mshembezi · Beadwork Pty Ltd · 49 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="zinhle"><span>Zinhle Mpeqeka · Zee In and Out Stylish · 61 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="bongeka"><span>Bongeka Zungu · Business Name TBC · 59 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="anele"><span>Anele Phungula · Starter Business · 40 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="thamsanqa"><span>Thamsanqa Chiliza · Fast Food Lovers · 31 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="zama"><span>Zama Mtungwa · Business Name TBC · 60 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="hleli"><span>Hleli Madonda · Hleli’s Beauty Hair Salon · 28 / 100</span><span class="open-small">open</span></button>
         </div>
 
         <button class="summary-card accordion-toggle" data-panel="org-wessa-panel">
@@ -1120,10 +1048,9 @@
         <button class="summary-card accordion-toggle" data-panel="region-durban-panel">
           <div><h3>🌊 Durban Region</h3><span class="sub">Top 1–3</span></div><span class="plus">+</span>
         </button>
-        <div class="inline-panel" id="region-durban-panel">
-          <button class="grower-pill" data-grower-template><span>Top 1 · Business Name</span><span class="open-small">open</span></button>
-          <button class="grower-pill" data-grower-template><span>Top 2 · Business Name</span><span class="open-small">open</span></button>
-          <button class="grower-pill" data-grower-template><span>Top 3 · Business Name</span><span class="open-small">open</span></button>
+                <div class="inline-panel" id="region-durban-panel">
+          <button class="grower-pill" data-org-business="melusi"><span>Melusi Mbotho · Inkazimulo Creche & Pre-School · 83 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="zinhle"><span>Zinhle Mpeqeka · Zee In and Out Stylish · 61 / 100</span><span class="open-small">open</span></button>
         </div>
 
         <button class="summary-card accordion-toggle" data-panel="region-ec-panel">
@@ -1655,6 +1582,339 @@
         ],
         nextStep: "Your work quality is visible — now make the business measurable. Keep your Core 3 styles and turn every booking into evidence: before/after, price, and date. Build a monthly tracker for clients, revenue, costs, profit, and repeat clients, and keep it updated for 3 months. Innovation is not simply being a salon; it is your system, so document your process, turnaround times, and client retention.",
         notion: "https://app.notion.com/p/bb980264e4354759a202da91911cb21d"
+      },
+      melusi: {
+        name: "Melusi Mbotho",
+        business: "Inkazimulo Creche & Pre-School",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/cancelo10/Inkazimulo-Creche-Pre-School-4da821fe7c1949cc8f8cbfd4e7cf097c?v=00636c9655b14d7a8ef296c999f51766&source=copy_link",
+        assessor: "Panelists 3",
+        score: "83 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "8 / 8"],
+          ["Innovative Product / Service", "15 / 15"],
+          ["Proof of Business Success", "27 / 30"],
+          ["Financial Management", "12 / 15"],
+          ["Strong Brand, Marketing, Sales", "12 / 20"],
+          ["Social & Environmental Impact", "2 / 5"],
+          ["Future Growth Prospects", "4 / 4"]
+        ],
+        businessPitch: [
+          "Clear community-needed service through ECD / creche support, with a strong value proposition for parents and guardians.",
+          "Strong performance across the rubric, especially product/service, proof of success, and growth prospects.",
+          "Good brand assets and visible programme participation, including flyer, banner, TikTok activity, and pitch preparation."
+        ],
+        finalAssessment: [
+          "This is one of the strongest and most region-ready businesses in the cohort.",
+          "The key risk is not packaging proof cleanly enough: enrolment registers, fee payments, monthly income and expenses, and profit.",
+          "The next improvement is to make proof and finances audit-ready and updated monthly."
+        ],
+        why: "Melusi was selected because Inkazimulo Creche & Pre-School already shows real demand and real growth. The strongest signal is that he had already grown from one child to 30 children without support. That proves community trust, service demand, and strong growth potential. With clearer proof packs, enrolment registers, fee records, and monthly financial summaries, this business can present a very strong regional case.",
+        nextStep: "Please don’t lose points at regional on something fixable: proof and financial evidence. Upload a simple proof pack for the last 3 months: enrolment register, children count per month, fee list, payment proof/receipts, and a monthly summary of income, expenses, and profit. Then keep one tracker updated weekly with new enrolments, fees collected, key costs, and cash on hand. Your work is strong — now make it undeniable on paper.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      zinhle: {
+        name: "Zinhle Mpeqeka",
+        business: "Zee In and Out Stylish",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/cancelo10/Zee-In-and-Out-Stylish-Zinhle-Mpeqeka-KwaNdengezi-34f644d472d78178865ad6569e95efbc?source=copy_link",
+        assessor: "Panelists 3",
+        score: "61 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "10 / 15"],
+          ["Proof of Business Success", "17 / 30"],
+          ["Financial Management", "9 / 15"],
+          ["Strong Brand, Marketing, Sales", "11 / 20"],
+          ["Social & Environmental Impact", "2 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Clear fashion offer and active selling energy.",
+          "The page includes product and sales evidence images.",
+          "Strong idea-test signals through target market clarity and decent proof of sales traction compared to others.",
+          "Finance effort exists through cashbook-style handwritten tracking, and the business is registered, but records are not yet audit-ready."
+        ],
+        finalAssessment: [
+          "Strong foundation and good momentum; close to regional readiness.",
+          "Missing: clean stock system, profit-per-item proof, and a month-to-month revenue story presented in a simple tracker rather than only a book photo.",
+          "The fastest unlock is converting the cashbook into a 4-week tracker covering stock, sales, costs, and profit, updated weekly."
+        ],
+        why: "Zinhle was selected because Zee In and Out Stylish shows active selling energy, a clear fashion offer, and evidence that the business is already being tracked. Her written financial records and profit evidence give the panel something real to work with. With a cleaner stock system, profit-per-item breakdown, and weekly sales tracker, the business can quickly become stronger and more convincing at regional level.",
+        nextStep: "You’re close — now make your proof audit-ready. You already have a cashbook and your business is registered; the next step is converting that book into a simple weekly tracker: starting stock, stock bought, stock sold, remaining stock, revenue, costs, and profit per item. Update it every week and summarise totals monthly: revenue, costs, and profit. Add pricing logic showing cost, selling price, and margin, then track what sells fastest. Keep marketing consistent through weekly stock drops and customer photos, and track inquiries into sales.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      velile: {
+        name: "Velile Parkies",
+        business: "Recycling / Waste Recovery",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/cancelo10/Velile-Parkies-Team-Leader-Ntuzuma-350644d472d7807a8697c6bd673b0172?v=00636c9655b14d7a8ef296c999f51766&source=copy_link",
+        assessor: "Panelists 3",
+        score: "45 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "7 / 15"],
+          ["Proof of Business Success", "10 / 30"],
+          ["Financial Management", "4 / 15"],
+          ["Strong Brand, Marketing, Sales", "6 / 20"],
+          ["Social & Environmental Impact", "5 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Evidence photos show real recycling activity and a clear price list for waste categories/materials.",
+          "Strong impact positioning through waste reduction and recycling.",
+          "The business aligns well with Green Learn to Earn priorities."
+        ],
+        finalAssessment: [
+          "Strong mission-aligned business with clear environmental value and visible pricing structure.",
+          "Missing: audit-ready operational tracking such as kilograms in/out, buyer receipts, and monthly financial records.",
+          "Fastest unlock: one weekly tracker with proof attached."
+        ],
+        nextStep: "Turn impact into proof. For the next 4 weeks, track every collection and sale in one table: date, waste type, kg collected, kg sold, buyer name, price/kg, total revenue, transport/handling costs, and profit. Add weekly proof through photos of bags on a scale, buyer receipts, and WhatsApp confirmations. Re-pitch with three numbers: kg/week, revenue/week, and profit/week.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      qinisio: {
+        name: "Qinisio Shozi",
+        business: "Starter Business",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/34f644d472d781c89b5df7377d4653b5",
+        assessor: "Panelists 3",
+        score: "42 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Pitch delivery was confident, clear, and energetic.",
+          "Business page shows early effort, including logo and evidence images.",
+          "The business states an intention to track daily sales."
+        ],
+        finalAssessment: [
+          "Strong communicator with potential to sell.",
+          "The weakness is proof: limited verifiable evidence of customers, revenue, profit, and consistent financial records.",
+          "Fastest unlock: build an audit-ready tracking system and update it weekly."
+        ],
+        nextStep: "Your pitch was eloquent, but the panel can’t award points for confidence without proof. For the next 4 weeks, track every sale in one simple table: date, product, units sold, price, revenue, direct costs, and profit. Attach weekly proof such as sales book photos, receipts, WhatsApp orders, and cash totals. Re-pitch with numbers: sales/week, profit/week, and repeat customers.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      patricia: {
+        name: "Patricia Mshembezi",
+        business: "Beadwork Pty Ltd",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/34f644d472d7818ea76de4fa35758595",
+        assessor: "Panelists 3",
+        score: "49 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Beadwork business with visible handmade product potential.",
+          "The business has a clear product category and can improve quickly with product photos, pricing, and customer proof.",
+          "The next level is stronger evidence of sales, costing, and repeat customers."
+        ],
+        finalAssessment: [
+          "The business has a useful craft/product foundation.",
+          "The score can improve fastest through cleaner product evidence, stock costing, and sales records.",
+          "The page should show proof that the products are moving, not only that they exist."
+        ],
+        nextStep: "Build a proof pack for the next 30 days: product photos, prices, materials costs, units sold, revenue, and profit. Track every order and attach customer proof or WhatsApp confirmations. Create a simple catalogue of the strongest beadwork products and show which products sell fastest.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      bongeka: {
+        name: "Bongeka Zungu",
+        business: "Business Name TBC",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554",
+        assessor: "Panelists 3",
+        score: "59 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Bongeka was reviewed under Use-it and scored close to the regional threshold.",
+          "The next improvement is to make the business profile more specific: product/service, customer proof, pricing, and financial summary.",
+          "The score suggests potential, but the business evidence needs to be made easier for viewers to verify."
+        ],
+        finalAssessment: [
+          "Close to regional readiness, but not chosen in this round.",
+          "Needs a clearer proof pack and a sharper business story.",
+          "Fastest unlock: make sales, customers, and finances visible in one simple tracker."
+        ],
+        nextStep: "Prepare a 30-day proof sprint: add customer proof, product/service photos, pricing, sales records, and a simple finance tracker. Summarise the month with revenue, costs, profit, and repeat customers. Re-pitch from evidence first, then story.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      anele: {
+        name: "Anele Phungula",
+        business: "Starter Business",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/34f644d472d781ff8f4ef17ae7901492",
+        assessor: "Panelists 3",
+        score: "40 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Starter-stage business profile reviewed under Use-it.",
+          "The business needs stronger evidence before regional consideration.",
+          "Key missing area: clear customer, sales, and finance proof."
+        ],
+        finalAssessment: [
+          "Not chosen in this round because the evidence is not yet strong enough.",
+          "The next improvement is to clarify the offer and show proof of actual business activity.",
+          "A stronger score will come from consistent records, not only intention."
+        ],
+        nextStep: "Clarify the product/service, then track proof for 4 weeks: customers approached, sales made, revenue, costs, profit, and photos/screenshots. Update the business page weekly and prepare a short re-pitch using the numbers.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      thamsanqa: {
+        name: "Thamsanqa Chiliza",
+        business: "Fast Food Lovers",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/1347069536544e49934f2aeaa4ff1fe9",
+        assessor: "Panelists 3",
+        score: "31 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Fast food business reviewed under Use-it.",
+          "The business needs clearer proof of customers, menu, pricing, cost per item, and daily sales.",
+          "Food businesses can improve quickly when stock, sales, and margins are tracked."
+        ],
+        finalAssessment: [
+          "Not chosen in this round because the business evidence and financial record are still too weak.",
+          "The panel needs to see daily sales, cost of ingredients, profit per item, and customer demand.",
+          "Fastest unlock: turn the food stall into a measurable operation."
+        ],
+        nextStep: "For the next 4 weeks, track every trading day: menu item, units sold, selling price, ingredient cost, total revenue, total cost, and profit. Add photos of meals, price list, customer orders, and cash totals. Re-pitch using your best-selling item and profit per day.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      zama: {
+        name: "Zama Mtungwa",
+        business: "Business Name TBC",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554",
+        assessor: "Panelists 3",
+        score: "60 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Zama reached the qualifying range but was not selected ahead of Melusi and Zinhle.",
+          "The business needs a sharper evidence story to separate itself from the rest of the cohort.",
+          "The next step is to make proof, numbers, and growth logic clearer."
+        ],
+        finalAssessment: [
+          "Not chosen in this round despite a competitive score.",
+          "Needs stronger differentiation, clearer proof of traction, and better evidence packaging.",
+          "Fastest unlock: turn the pitch into a numbers-led proof pack."
+        ],
+        nextStep: "Build a 30-day evidence pack with customer proof, sales totals, expenses, profit, and best-performing products/services. Add a short explanation of what makes the business different and what support would unlock the next stage. Re-pitch with evidence first.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
+      },
+      hleli: {
+        name: "Hleli Madonda",
+        business: "Hleli’s Beauty Hair Salon",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "https://app.notion.com/p/34f644d472d7812ea75dd13539f64e8c",
+        assessor: "Panelists 3",
+        score: "28 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "TBC / 3"],
+          ["Business Idea Test", "TBC / 8"],
+          ["Innovative Product / Service", "TBC / 15"],
+          ["Proof of Business Success", "TBC / 30"],
+          ["Financial Management", "TBC / 15"],
+          ["Strong Brand, Marketing, Sales", "TBC / 20"],
+          ["Social & Environmental Impact", "TBC / 5"],
+          ["Future Growth Prospects", "TBC / 4"]
+        ],
+        businessPitch: [
+          "Beauty salon business reviewed under Use-it.",
+          "The business page exists, but the evidence needs to become stronger and more complete.",
+          "Main missing areas are customer proof, repeat bookings, pricing, and financial records."
+        ],
+        finalAssessment: [
+          "Not chosen in this round because the evidence and score are still too low.",
+          "Needs a simple, consistent system for recording clients, services, revenue, costs, and profit.",
+          "Fastest unlock: build proof around a small number of core services."
+        ],
+        nextStep: "Focus on 2–3 core salon services. For every client, capture before/after photos, date, service, price, and customer feedback. Keep a weekly tracker for clients served, products used, revenue, costs, and profit. After 4 weeks, update the pitch using real numbers and visible customer proof.",
+        notion: "https://app.notion.com/p/3a9644d472d78054a816f7e5850c2554"
       }
     };
 
@@ -1773,37 +2033,8 @@
 
     function openGrowerShelf(g) {
       const pitchCover = "linear-gradient(135deg, rgba(6,21,41,.96), rgba(13,45,82,.88), rgba(244,201,93,.30))";
-      setHero("Top 5 Checklist", g.name, `${g.business} · ${g.sector}`, pitchCover);
+      setHero("Grower Business Evidence", g.name, `${g.business} · ${g.sector}`, pitchCover);
       const imageBlock = g.image ? `<img class="evidence-image" src="${g.image}" alt="${g.name} evidence image">` : "";
-
-      const isNosipho = g.name && g.name.toLowerCase().includes("nosipho");
-
-      const traction = g.traction || "[add numbers + timeframe]";
-      const revenueProof = g.revenueProof || "[add sales records / booking records / payment evidence]";
-      const operations = g.operations || "[add what proves delivery capacity, product/service quality and client handling]";
-      const fundingLogic = g.fundingLogic || (isNosipho
-        ? "funding → décor stock / equipment / transport capacity → more bookings → higher monthly profit"
-        : "[money → capacity → revenue/profit chain]");
-
-      const supportAsk = g.supportAsk || (isNosipho
-        ? [
-            ["Décor stock / equipment", "increase event capacity and improve service quality"],
-            ["Branding and marketing support", "secure more bookings and build trust"],
-            ["Transport / logistics support", "improve delivery reliability for events"]
-          ]
-        : [
-            ["[Item 1]", "[Outcome]"],
-            ["[Item 2]", "[Outcome]"],
-            ["[Item 3]", "[Outcome]"]
-          ]);
-
-      const evidenceLinks = g.evidenceLinks || [
-        ["Financials", g.notion || "[link]"],
-        ["Milestones / traction log", g.notion || "[link]"],
-        ["Evidence / portfolio / photos", g.notion || "[link]"],
-        ["Assessment page", g.notion || "[link]"]
-      ];
-
       document.getElementById("shelfBody").innerHTML = `
         ${imageBlock}
         <div class="field-grid">
@@ -1814,46 +2045,24 @@
           <div class="field"><label>Region</label><strong>${g.region}</strong></div>
           <div class="field"><label>Status</label><strong>${g.status || "Chosen to represent their Region"}</strong></div>
         </div>
-
-        <div class="top5-checklist">
-          <section class="check-section">
-            <h3>Why Top 5 — proof-first</h3>
-            <ul>
-              <li><strong>Traction:</strong> ${traction}</li>
-              <li><strong>Revenue proof:</strong> ${revenueProof}</li>
-              <li><strong>Operations:</strong> ${operations}</li>
-              <li><strong>Funding logic:</strong> ${fundingLogic}</li>
-            </ul>
-          </section>
-
-          <section class="check-section">
-            <h3>What got this business into Top 5 — selection standard</h3>
-            <div class="selection-standard">
-              <div class="standard-item">Consistent proof over time, not one-day pitch performance.</div>
-              <div class="standard-item">Financial records that are simple, real and reviewable.</div>
-              <div class="standard-item">Capacity plan and compliance thinking.</div>
-              <div class="standard-item">Founder momentum: visible progress without funding.</div>
-            </div>
-          </section>
-
-          <section class="check-section">
-            <h3>Clear Ask for Support — tight and measurable</h3>
-            <ul>
-              ${supportAsk.map(item => `<li><strong>${item[0]}</strong> → ${item[1]}</li>`).join("")}
-            </ul>
-          </section>
-
-          <section class="check-section">
-            <h3>Evidence links</h3>
-            <div class="evidence-links">
-              ${evidenceLinks.map(item => `<div class="evidence-link"><strong>${item[0]}</strong>${item[1] && item[1].startsWith("http") ? `<a class="profile-link" href="${item[1]}" target="_blank">Open link →</a>` : item[1]}</div>`).join("")}
-            </div>
-          </section>
+        <div class="shelf-divider"></div>
+        <h3>Business Description</h3>
+        <p class="info-text">${g.description}</p>
+        <div class="shelf-divider"></div>
+        <h3>Why this Grower moved forward</h3>
+        <p class="info-text">${g.why}</p>
+        <div class="support-box">
+          <h3>Financials · Milestones · Evidence · Assessment</h3>
+          <p>See the full Notion assessment for financials, milestones, evidence, and assessment results.</p>
+          ${g.notion ? `` : ""}
+        </div>
+        <div class="support-box">
+          <h3>Clear Ask for Support</h3>
+          <p>${g.ask}</p>
         </div>
       `;
       openOverlay();
     }
-
 
 
     function openOrgBusinessShelf(b) {
