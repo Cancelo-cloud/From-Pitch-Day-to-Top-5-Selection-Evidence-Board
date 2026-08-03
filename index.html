@@ -1,1 +1,3274 @@
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>From Pitch Day to Top 5 · Selection Evidence Board</title>
+<style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --blue-black: #061529;
+      --blue-deep: #0b1f3a;
+      --blue-card: rgba(9, 30, 58, .92);
+      --blue-border: rgba(138, 174, 217, .28);
+      --blue-text: #eaf3ff;
+      --blue-muted: #a9bdd6;
+      --blue-accent: #66b8ff;
+      --blue-gold: #f4c95d;
+      --cream: #f8f3ea;
+      --cream-line: #d8c4a2;
+      --brown: #6e573e;
+      --green: #2f5d47;
+      --card-bg: rgba(9, 30, 58, .92);
+      --text-muted: #b0c7dd;
+      --font-scale: 1.05;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background: radial-gradient(circle at top, #0b2441 0, var(--blue-black) 44%, #040b16 100%);
+      color: var(--blue-text);
+      min-height: 100vh;
+      padding: 20px 16px;
+    }
+
+    .page {
+      max-width: 1480px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      width: 100%;
+      padding: 24px 28px 20px;
+      background: rgba(5, 17, 36, .83);
+      border: 1px solid var(--blue-border);
+      border-radius: 20px;
+      margin-bottom: 22px;
+      backdrop-filter: blur(6px);
+      display: grid;
+      grid-template-columns: minmax(360px, 1fr) minmax(360px, .95fr);
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: calc(11px * var(--font-scale));
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue-accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero h1 {
+      font-size: calc(34px * var(--font-scale));
+      font-weight: 700;
+      line-height: 1.08;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .subhead {
+      font-size: calc(16px * var(--font-scale));
+      color: var(--blue-muted);
+      margin-top: 8px;
+      border-left: 3px solid var(--blue-gold);
+      padding-left: 16px;
+      opacity: .9;
+    }
+
+    .hotel-badge {
+      width: 100%;
+      min-height: 70px;
+      border: 1px solid rgba(244, 201, 93, .22);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(244,201,93,.18), rgba(102,184,255,.06)),
+        rgba(255,255,255,.035);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      box-shadow: inset 0 0 34px rgba(244,201,93,.045);
+      color: var(--blue-gold);
+      font-weight: 700;
+      font-size: calc(29px * var(--font-scale));
+      letter-spacing: .01em;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .hotel-badge small {
+      font-size: calc(18px * var(--font-scale));
+      color: #ffe49a;
+      font-weight: 400;
+      margin-left: 10px;
+    }
+
+    .dashboard-banner {
+      width: 100%;
+      height: 178px;
+      margin: 0 0 26px;
+      border: 1px solid var(--blue-border);
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(5, 17, 36, .78);
+      box-shadow: 0 18px 45px rgba(0,0,0,.24);
+      position: relative;
+      line-height: 0;
+    }
+
+    .dashboard-banner img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center 54%;
+      filter: saturate(1.05) contrast(1.03) brightness(1.01);
+    }
+
+    .dashboard-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(6,21,41,.24), rgba(6,21,41,.02), rgba(6,21,41,.18));
+      pointer-events: none;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: 0.82fr 0.82fr 1.36fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .column {
+      background: rgba(5, 17, 36, .60);
+      border: 1px solid var(--blue-border);
+      border-radius: 18px;
+      padding: 16px 14px 14px;
+      backdrop-filter: blur(4px);
+      position: relative;
+    }
+
+    .column-header {
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--blue-border);
+    }
+
+    .stage {
+      display: inline-block;
+      font-size: calc(10px * var(--font-scale));
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--blue-accent);
+      background: rgba(102, 184, 255, .10);
+      border: 1px solid var(--blue-border);
+      padding: 2px 10px;
+      border-radius: 40px;
+      margin-bottom: 6px;
+    }
+
+    .column h2 {
+      font-size: calc(22px * var(--font-scale));
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .column .hint {
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .summary-card, .add-card {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid var(--blue-border);
+      border-radius: 14px;
+      padding: 10px 12px;
+      background: var(--card-bg);
+      color: var(--blue-text);
+      font-family: inherit;
+      margin-bottom: 10px;
+      transition: background .15s, border-color .15s, transform .15s;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .summary-card:hover, .add-card:hover {
+      background: rgba(14, 43, 78, .95);
+      border-color: rgba(102, 184, 255, .48);
+      transform: translateY(-1px);
+    }
+
+    .summary-card h3, .add-card h3 {
+      font-size: calc(17px * var(--font-scale));
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 3px 0;
+    }
+
+    .summary-card .sub, .add-card .sub {
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      display: block;
+    }
+
+    .plus {
+      color: var(--blue-gold);
+      font-size: calc(22px * var(--font-scale));
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .add-card {
+      border-style: dashed;
+      background: rgba(102, 184, 255, .07);
+      border-color: rgba(102, 184, 255, .38);
+      margin-top: 14px;
+    }
+
+    .add-card h3 {
+      color: var(--blue-accent);
+    }
+
+    .inline-panel {
+      display: none;
+      margin: -4px 8px 12px;
+      padding: 10px;
+      border: 1px solid rgba(138, 174, 217, .16);
+      border-top: none;
+      border-radius: 0 0 14px 14px;
+      background: rgba(255, 255, 255, .035);
+    }
+
+    .summary-card.open {
+      border-radius: 14px 14px 0 0;
+      border-color: rgba(102, 184, 255, .44);
+      background: rgba(14, 43, 78, .95);
+    }
+
+    .summary-card.open + .inline-panel {
+      display: block;
+    }
+
+    .summary-card.open .plus {
+      transform: rotate(45deg);
+    }
+
+    .grower-pill {
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid rgba(138, 174, 217, .18);
+      border-left: 2px solid var(--blue-accent);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, .045);
+      color: var(--blue-text);
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      font-family: inherit;
+      font-size: calc(13px * var(--font-scale));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      align-items: center;
+      transition: background .15s, border-color .15s;
+    }
+
+    .grower-pill:hover {
+      background: rgba(255, 255, 255, .075);
+      border-color: rgba(102, 184, 255, .40);
+    }
+
+    .grower-pill .open-small {
+      font-size: calc(10px * var(--font-scale));
+      color: var(--blue-muted);
+      background: rgba(255, 255, 255, .06);
+      padding: 1px 8px;
+      border-radius: 30px;
+      text-decoration: underline;
+    }
+
+    .placeholder-pill {
+      opacity: .72;
+    }
+
+    .top5-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .top5-card {
+      display: grid;
+      grid-template-columns: 118px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      border: 1px solid var(--blue-border);
+      border-left: 3px solid var(--blue-gold);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(9, 30, 58, .90);
+      color: var(--blue-text);
+      font-family: inherit;
+      transition: background .15s, border-color .15s, transform .15s;
+    }
+
+    .top5-card:hover {
+      background: rgba(14, 43, 78, .96);
+      border-color: rgba(244, 201, 93, .35);
+      transform: translateY(-1px);
+    }
+
+    .top5-photo {
+      width: 118px;
+      height: 118px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(102,184,255,.34), rgba(244,201,93,.12));
+      border: 1px solid rgba(255,255,255,.10);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.78);
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .top5-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .top5-card h3 {
+      color: #fff;
+      font-size: calc(20px * var(--font-scale));
+      margin-bottom: 2px;
+    }
+
+    .top5-card .business {
+      color: var(--blue-gold);
+      font-size: calc(14px * var(--font-scale));
+      margin-bottom: 6px;
+    }
+
+    .reason-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .reason-tags span {
+      font-size: calc(11px * var(--font-scale));
+      color: var(--text-muted);
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.06);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .open-label {
+      color: var(--blue-gold);
+      font-size: calc(26px * var(--font-scale));
+    }
+
+    .footer-note {
+      margin-top: 30px;
+      text-align: center;
+      font-size: calc(12px * var(--font-scale));
+      color: var(--blue-muted);
+      opacity: .58;
+      border-top: 1px solid var(--blue-border);
+      padding-top: 18px;
+      font-style: italic;
+      letter-spacing: .3px;
+    }
+
+    /* Shelf / modal */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(3, 9, 18, .72);
+      backdrop-filter: blur(6px);
+      padding: 28px;
+      z-index: 999;
+    }
+
+    .overlay.open {
+      display: flex;
+    }
+
+    .shelf {
+      width: min(1080px, 100%);
+      max-height: 88vh;
+      overflow: auto;
+      background: var(--cream);
+      color: #2a2118;
+      border-radius: 24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+      border: 1px solid rgba(216,196,162,.8);
+      position: relative;
+    }
+
+    .shelf-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,.86);
+      color: #20170f;
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 1;
+      z-index: 5;
+      box-shadow: 0 8px 22px rgba(0,0,0,.12);
+    }
+
+    .shelf-hero {
+      min-height: 170px;
+      padding: 40px 36px 34px;
+      background:
+        linear-gradient(90deg, rgba(10, 20, 30, .68), rgba(10,20,30,.28)),
+        var(--shelf-image, linear-gradient(135deg, #d8c4a2, #f6efe1));
+      background-size: cover;
+      background-position: center;
+      color: white;
+      border-radius: 24px 24px 0 0;
+    }
+
+    .shelf-hero .kicker {
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: #f7d984;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .shelf-hero h2 {
+      font-size: 42px;
+      line-height: 1.02;
+      text-shadow: 0 3px 18px rgba(0,0,0,.26);
+    }
+
+    .shelf-hero p {
+      margin-top: 10px;
+      max-width: 760px;
+      color: rgba(255,255,255,.88);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .shelf-body {
+      padding: 30px 34px 34px;
+    }
+
+    .shelf-divider {
+      height: 1px;
+      background: var(--cream-line);
+      margin: 24px 0;
+    }
+
+    .shelf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .shelf-row {
+      border: 1px solid var(--cream-line);
+      border-radius: 16px;
+      padding: 18px;
+      background: rgba(255,255,255,.52);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .shelf-row:hover {
+      background: rgba(255,255,255,.78);
+    }
+
+    .shelf-row h3 {
+      font-size: 21px;
+      color: #24180f;
+      margin-bottom: 4px;
+    }
+
+    .shelf-row p {
+      color: var(--brown);
+      line-height: 1.45;
+      font-size: 15px;
+    }
+
+    .shelf-row .chev {
+      color: #956b2f;
+      font-size: 28px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .field {
+      border: 1px solid var(--cream-line);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.52);
+    }
+
+    .field label {
+      display: block;
+      color: #8d6d47;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .field strong {
+      font-size: 18px;
+      color: #24180f;
+    }
+
+    .wide {
+      grid-column: 1 / -1;
+    }
+
+    .info-text {
+      color: var(--brown);
+      font-size: 16px;
+      line-height: 1.65;
+      margin-top: 10px;
+    }
+
+    .evidence-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: #e6ddce;
+      border-radius: 18px;
+      border: 1px solid var(--cream-line);
+      margin-bottom: 18px;
+    }
+
+    .support-box {
+      margin-top: 16px;
+      border: 1px solid rgba(47,93,71,.25);
+      background: rgba(47,93,71,.08);
+      border-radius: 16px;
+      padding: 16px 18px;
+      color: #2f4a3b;
+    }
+
+    .support-box h3 {
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+
+    .rubric-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--cream-line);
+      background: rgba(255,255,255,.46);
+    }
+
+    .rubric-table th,
+    .rubric-table td {
+      padding: 11px 13px;
+      border-bottom: 1px solid rgba(216,196,162,.62);
+      text-align: left;
+      font-size: 15px;
+      color: #2a2118;
+    }
+
+    .rubric-table th {
+      color: #6e573e;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: rgba(216,196,162,.25);
+    }
+
+    .rubric-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .result-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .result-pill.red {
+      background: rgba(176, 44, 44, .12);
+      color: #9a2828;
+      border: 1px solid rgba(176, 44, 44, .22);
+    }
+
+    .result-pill.green {
+      background: rgba(47,93,71,.12);
+      color: #2f5d47;
+      border: 1px solid rgba(47,93,71,.25);
+    }
+
+    .profile-link {
+      display: inline-block;
+      color: #2f5d47;
+      font-weight: 700;
+      margin-top: 10px;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(47,93,71,.35);
+    }
+
+    .profile-link:hover {
+      border-bottom-color: #2f5d47;
+    }
+
+    .template-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .template-form label {
+      display: block;
+      color: #6e573e;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .fake-input, .fake-textarea {
+      width: 100%;
+      border: 1px solid var(--cream-line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.55);
+      padding: 14px 16px;
+      color: #6d665d;
+      font-size: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .fake-textarea {
+      min-height: 96px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 1101px) {
+      .column:not(:last-child)::after {
+        content: "→";
+        position: absolute;
+        right: -26px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+        color: var(--blue-gold);
+        opacity: .82;
+        font-weight: 700;
+        text-shadow: 0 0 12px rgba(244,201,93,.26);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        white-space: normal;
+        font-size: calc(28px * var(--font-scale));
+      }
+      .hotel-badge {
+        font-size: calc(24px * var(--font-scale));
+      }
+      .board {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .shelf-grid, .field-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 12px 10px;
+      }
+      .hero {
+        padding: 18px 16px;
+      }
+      .hero h1 {
+        font-size: calc(22px * var(--font-scale));
+      }
+      .hotel-badge {
+        min-height: auto;
+        font-size: calc(18px * var(--font-scale));
+        white-space: normal;
+      }
+      .hotel-badge small {
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+      .subhead {
+        font-size: calc(13px * var(--font-scale));
+        padding-left: 12px;
+      }
+      .dashboard-banner {
+        height: 132px;
+        margin-bottom: 18px;
+      }
+      .column {
+        padding: 12px 10px;
+      }
+      .column h2 {
+        font-size: calc(18px * var(--font-scale));
+      }
+      .top5-card {
+        grid-template-columns: 82px 1fr;
+      }
+      .top5-photo {
+        width: 82px;
+        height: 82px;
+      }
+      .open-label {
+        display: none;
+      }
+      .overlay {
+        padding: 12px;
+      }
+      .shelf-hero {
+        min-height: 150px;
+        padding: 32px 22px 24px;
+      }
+      .shelf-hero h2 {
+        font-size: 30px;
+      }
+      .shelf-body {
+        padding: 22px 18px 24px;
+      }
+    }
+  
+    /* --- BLUE/GOLD SHELF THEME OVERRIDE --- */
+    .shelf {
+      background: #07182f !important;
+      color: var(--blue-text) !important;
+      border: 1px solid rgba(244, 201, 93, .30) !important;
+      box-shadow: 0 30px 90px rgba(0,0,0,.55), inset 0 0 0 1px rgba(102,184,255,.08) !important;
+    }
+
+    .shelf-close {
+      background: rgba(244, 201, 93, .92) !important;
+      color: #061529 !important;
+      font-weight: 700 !important;
+    }
+
+    .shelf-hero {
+      background:
+        linear-gradient(90deg, rgba(2,13,31,.84), rgba(2,13,31,.52), rgba(2,13,31,.86)),
+        var(--shelf-image, linear-gradient(135deg, #020d1f, #061832)) !important;
+      background-size: cover !important;
+      background-position: center !important;
+      border-bottom: 1px solid rgba(244, 201, 93, .24) !important;
+    }
+
+    .shelf-hero .kicker,
+    .shelf-hero h2 {
+      color: var(--blue-gold) !important;
+    }
+
+    .shelf-hero p {
+      color: #d9e8fb !important;
+    }
+
+    .shelf-divider {
+      background: rgba(244, 201, 93, .22) !important;
+    }
+
+    .field,
+    .support-box,
+    .template-form .fake-input,
+    .template-form .fake-textarea {
+      background: rgba(9, 30, 58, .88) !important;
+      border-color: rgba(244, 201, 93, .22) !important;
+      color: var(--blue-text) !important;
+    }
+
+    .field label,
+    .template-form label {
+      color: var(--blue-gold) !important;
+    }
+
+    .field strong,
+    .shelf-body h3,
+    .support-box h3 {
+      color: var(--blue-gold) !important;
+    }
+
+    .info-text,
+    .support-box,
+    .support-box p,
+    .support-box li,
+    .fake-input,
+    .fake-textarea {
+      color: #d9e8fb !important;
+    }
+
+    .rubric-table {
+      background: rgba(9, 30, 58, .88) !important;
+      border-color: rgba(244, 201, 93, .22) !important;
+    }
+
+    .rubric-table th {
+      color: var(--blue-gold) !important;
+      background: rgba(244, 201, 93, .10) !important;
+      border-bottom: 1px solid rgba(244, 201, 93, .22) !important;
+    }
+
+    .rubric-table td {
+      color: #eaf3ff !important;
+      border-bottom: 1px solid rgba(244, 201, 93, .16) !important;
+    }
+
+    .result-pill.red,
+    .result-pill.green {
+      background: rgba(244, 201, 93, .12) !important;
+      color: var(--blue-gold) !important;
+      border-color: rgba(244, 201, 93, .28) !important;
+    }
+
+    .profile-link {
+      color: var(--blue-gold) !important;
+      border-bottom-color: rgba(244, 201, 93, .45) !important;
+    }
+
+  
+    /* --- FINAL VIEWER CLEANUP --- */
+    .shelf-hero h2 {
+      color: #ffffff !important;
+    }
+
+    .shelf-body h3 {
+      color: #ffffff !important;
+    }
+
+    .field strong {
+      color: #ffffff !important;
+    }
+
+    .rubric-table td strong {
+      color: #ffffff !important;
+    }
+
+    .support-box h3 {
+      color: #ffffff !important;
+    }
+
+    .result-pill.red,
+    .result-pill.green {
+      background: rgba(244, 201, 93, .10) !important;
+      color: #ffffff !important;
+      border-color: rgba(244, 201, 93, .28) !important;
+    }
+
+    .add-card {
+      display: none !important;
+    }
+
+  
+    /* HARD FIX — keep the dashboard as 3 columns on desktop */
+    @media (min-width: 1101px) {
+      .board {
+        display: grid !important;
+        grid-template-columns: minmax(280px, .82fr) minmax(280px, .82fr) minmax(420px, 1.36fr) !important;
+        gap: 28px !important;
+        align-items: start !important;
+      }
+      .board > .column {
+        min-width: 0 !important;
+      }
+    }
+
+  
+    /* RECOVERY SORT FIX — keep dashboard as 3 columns on desktop */
+    @media (min-width: 1101px) {
+      .board {
+        display: grid !important;
+        grid-template-columns: minmax(280px, .82fr) minmax(280px, .82fr) minmax(420px, 1.36fr) !important;
+        gap: 28px !important;
+        align-items: start !important;
+      }
+      .board > .column { min-width: 0 !important; }
+    }
+
+    .me-report {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid rgba(187,162,113,.34);
+      border-radius: 22px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.94), rgba(246,239,225,.86)),
+        url("https://images.unsplash.com/photo-1666875753105-c63a6f3bdc86?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb");
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+
+    .me-report h3 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+    }
+
+    .me-report .report-subtitle {
+      margin: 0 0 16px;
+      color: #6d614e;
+      line-height: 1.55;
+      font-size: .95rem;
+    }
+
+    .evidence-kpis {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 14px 0 16px;
+    }
+
+    .evidence-card {
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(187,162,113,.25);
+      border-radius: 16px;
+      padding: 13px 14px;
+    }
+
+    .evidence-card label {
+      display: block;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8a7652;
+      margin-bottom: 5px;
+      font-weight: 800;
+    }
+
+    .evidence-card strong {
+      display: block;
+      color: #18202b;
+      font-size: 1.02rem;
+      line-height: 1.3;
+    }
+
+    .evidence-card p {
+      margin: 6px 0 0;
+      color: #64594a;
+      line-height: 1.45;
+      font-size: .92rem;
+    }
+
+    .evidence-priority {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(24,32,43,.92);
+      color: #fff;
+    }
+
+    .evidence-priority h4 {
+      margin: 0 0 8px;
+      color: #f4c95d;
+    }
+
+    .evidence-priority ol {
+      margin: 0;
+      padding-left: 20px;
+      line-height: 1.65;
+    }
+
+    .evidence-priority li {
+      margin-bottom: 4px;
+    }
+
+    @media (max-width: 680px) {
+      .evidence-kpis {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .premium-profile {
+      margin-top: 18px;
+      display: grid;
+      gap: 16px;
+    }
+    .premium-section {
+      padding: 16px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #020d1f, #061832);
+      border: 1px solid rgba(244,201,93,.30);
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+    .premium-section h3 {
+      margin: 0 0 8px;
+      color: #f4c95d;
+      font-size: 1.05rem;
+    }
+    .premium-section p {
+      margin: 0;
+      color: #f7f1e6;
+      line-height: 1.55;
+      font-size: .96rem;
+    }
+    .finance-template-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-top: 8px;
+      font-size: .9rem;
+    }
+    .finance-template-table th {
+      background: #061832;
+      color: #f4c95d;
+      padding: 10px;
+      text-align: left;
+    }
+    .finance-template-table td {
+      padding: 10px;
+      border-bottom: 1px solid rgba(244,201,93,.16);
+      background: rgba(255,255,255,.08);
+      color: #f7f1e6;
+    }
+    .marketing-proof-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .marketing-proof {
+      display: block;
+      border: 1px solid rgba(244,201,93,.22);
+      padding: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: zoom-in;
+      background: #061832;
+      box-shadow: 0 10px 24px rgba(0,0,0,.18);
+    }
+    .marketing-proof img {
+      width: 100%;
+      height: 145px;
+      object-fit: cover;
+      display: block;
+      transition: transform .2s ease;
+    }
+    .marketing-proof:hover img { transform: scale(1.03); }
+    .suggested-support-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .support-mini-card {
+      padding: 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #020d1f, #061832);
+      color: #fff;
+      border: 1px solid rgba(244,201,93,.24);
+    }
+    .support-mini-card strong {
+      display: block;
+      color: #f4c95d;
+      margin-bottom: 6px;
+    }
+    .support-mini-card p {
+      color: rgba(255,255,255,.92);
+      font-size: .92rem;
+    }
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.82);
+      padding: 24px;
+    }
+    .image-lightbox.open { display: flex; }
+    .image-lightbox img {
+      max-width: min(960px, 94vw);
+      max-height: 88vh;
+      border-radius: 20px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+    }
+    .image-lightbox button {
+      position: fixed;
+      top: 18px;
+      right: 20px;
+      border: 0;
+      border-radius: 999px;
+      width: 42px;
+      height: 42px;
+      background: #fff;
+      color: #2f2118;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .marketing-proof-grid, .suggested-support-grid { grid-template-columns: 1fr; }
+      .marketing-proof img { height: 190px; }
+    }
+
+
+    .support-options-line {
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .support-option-pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 10px;
+      border: 1px solid rgba(244,201,93,.32);
+      color: #f4c95d;
+      background: rgba(244,201,93,.08);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+
+    .support-mini-card.is-priority {
+      border-color: rgba(244,201,93,.65);
+      box-shadow: inset 0 0 0 1px rgba(244,201,93,.18), 0 14px 34px rgba(0,0,0,.18);
+    }
+
+
+    .field .profile-link {
+      color: var(--blue-gold) !important;
+      border-bottom: 1px solid rgba(244, 201, 93, .45) !important;
+      text-decoration: none !important;
+      font-weight: 800 !important;
+    }
+
+    .field .profile-link:hover {
+      border-bottom-color: var(--blue-gold) !important;
+    }
+
+
+    .top5-opening-showcase {
+      background: #d9d2c3;
+      border: 1px solid rgba(244, 201, 93, .18);
+      border-radius: 26px;
+      padding: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.18);
+    }
+
+    .top5-opening-showcase img {
+      display: block;
+      max-width: min(100%, 560px);
+      max-height: 72vh;
+      width: auto;
+      height: auto;
+      border-radius: 0;
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+      object-fit: contain;
+      background: transparent;
+    }
+
+
+    .finance-template-table .total-row td {
+      font-weight: 800 !important;
+      background: rgba(244, 201, 93, .08) !important;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+<div>
+<div class="eyebrow">BB Dashboard · Selection Evidence</div>
+<h1>From Pitch Day to Top 5</h1>
+<div class="subhead">A clear evidence trail: Organisations → Regional Top 1–3 → Final Top 5</div>
+</div>
+<div class="hotel-badge">🏆 ANEW Hotel <small>· 2026</small></div>
+</header>
+<section aria-label="ANEW Hotel venue image" class="dashboard-banner">
+<img alt="ANEW Hotel venue" src="assets/images/image_001_85472389502f.jpg"/>
+</section>
+<main class="board">
+<section class="column">
+<div class="column-header">
+<span class="stage">Step 1</span>
+<h2>Organisations</h2>
+<div class="hint">Organisation name + number of pitchers · click to open</div>
+</div>
+
+
+<button class="summary-card accordion-toggle" data-panel="org-useit-panel">
+<div><h3>Use-it</h3><span class="sub">9 reviewed · 3 selected</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-useit-panel">
+
+
+
+
+
+
+
+
+
+
+<button class="grower-pill" data-org-business="melusi"><span>Melusi Mbotho · Inkazimulo Creche &amp; Pre-School · 83 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="zinhle"><span>Zinhle Mpeqeka · Zee In and Out Stylish · 61 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="zama"><span>Zama Mtungwa · Golden Fry Joint · 60 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="bongeka"><span>Bongeka Zungu · Sukumasakhe Phinifa Boutique · 61 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="patricia"><span>Patricia Mshembezi · Beadwork Pty Ltd · 49 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="velile"><span>Velile Parkies · Recycling / Waste Recovery · 45 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="qinisio"><span>Qinisio Shozi · Starter Business · 42 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="anele"><span>Anele Phungula · Izithelo Zemvelo Co-Op · 40 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="thamsanqa"><span>Thamsanqa Chiliza · Fast Food Lovers · 31 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="hleli"><span>Hleli Madonda · Hleli’s Beauty Hair Salon · 28 / 100</span><span class="open-small">open</span></button></div>
+
+
+<button class="summary-card accordion-toggle" data-panel="org-ers-panel">
+<div><h3>ERS</h3><span class="sub">4 reviewed · 1 selected</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-ers-panel">
+
+
+
+
+<button class="grower-pill" data-org-business="kefuwe"><span>Kefuwe Phamotse · TimeLine Studios · 70 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="lihle"><span>Lihle Marawule · Triple Threat Salon · 62 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="reitumetse"><span>Reitumetse Moeti · Hair by TumiMoeti · 56 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="lonwabo"><span>Lonwabo Gqojana · Farm Livestock Supply · 47 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="org-nmdp-panel">
+<div><h3>NMDP</h3><span class="sub">5 reviewed</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-nmdp-panel">
+
+
+
+
+
+<button class="grower-pill" data-org-business="artslave"><span>Art Slave Photography · 55 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="hazel"><span>Hazel Madlala · Hazel’s Lingerie &amp; Intimacy Shop · 49 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="imvelo"><span>Imvelo’enhle Poultry · 29 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="nolwazi"><span>Nolwazi Lephenyane · Sweet Home Bakes · 24 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="nadine"><span>Nadine Vector · Shine On Cleaning Products · 22 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="org-liberty-panel">
+<div><h3>Liberty NPO</h3><span class="sub">3 scored pitchers</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-liberty-panel">
+
+
+
+<button class="grower-pill" data-org-business="nosiphoRegional"><span>Nosipho Cele · Belolugaju Events &amp; Décor · 85 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="bongiwe"><span>Bongiwe Funeka · Owenkosi’s Beauty Hair Salon · 31 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="thembeka"><span>Thembeka Promise Ndlovu · Thembekile’s Beauty Palace · 21 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="org-kpca-panel">
+<div><h3>KPCA</h3><span class="sub">2 scored pitchers</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-kpca-panel">
+
+
+<button class="grower-pill" data-org-business="corneliaRegional"><span>Cornelia van der Sandt · Garden of Hope · 90 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="sphepheloRegional"><span>Sphephelo Mathonsi · Sponza Ship Sounds · 66 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="org-worlds-panel">
+<div><h3>Worlds View</h3><span class="sub">2 scored pitchers</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-worlds-panel">
+
+
+<button class="grower-pill" data-org-business="charity"><span>Charity Nomcebo Mlambo · African Essence Beauty Salon · 64 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="bandile"><span>Bandile Mthethwa · Mobile Beauty Therapy · 40 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="org-wessa-panel">
+<div><h3>WESSA</h3><span class="sub">2 reviewed · 1 chosen</span></div><span class="plus">+</span>
+</button><div class="inline-panel" id="org-wessa-panel">
+          <button class="grower-pill" data-org-business="xolani"><span>Xolani Mahlangu · Mabhoko Brush Cutter · 61 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="bandile-radebe"><span>Bandile Radebe · Bandile’s Smart CVs · 51 / 100</span><span class="open-small">open</span></button>
+        </div><button class="summary-card accordion-toggle" data-panel="org-love-panel">
+<div><h3>Love Umngeni / Howick</h3><span class="sub">1 reviewed · 1 selected · Top 5</span></div><span class="plus">+</span>
+</button><div class="inline-panel" id="org-love-panel">
+
+<button class="grower-pill" data-org-business="nomvelo"><span>Nomvelo Zuma · Whisked Nibbles Bakery · 70 / 100</span><span class="open-small">open</span></button></div>
+
+<button class="summary-card accordion-toggle" data-panel="org-duct-panel">
+<div><h3>DUCT</h3><span class="sub">4 reviewed · 1 selected</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-duct-panel">
+<button class="grower-pill" data-org-business="nomnandiDuct"><span>Nomnandi Sibisi · Nomie’s Gourmets Confections · 64 / 100</span><span class="open-small">open</span></button>
+<button class="grower-pill" data-org-business="dumisaniDuct"><span>Dumisani Kubheka · Black Roots · 23 / 100</span><span class="open-small">open</span></button>
+<button class="grower-pill" data-org-business="simphiweDlaminiDuct"><span>Simphiwe Dlamini · Bicycle &amp; Machine Repairs · 28 / 100</span><span class="open-small">open</span></button>
+<button class="grower-pill" data-org-business="snenhlanhlaDuct"><span>Snenhlanhla Madonda · Lashes by Snerh · 64 / 100</span><span class="open-small">open</span></button>
+</div>
+<button class="summary-card accordion-toggle" data-panel="org-inr-panel">
+<div><h3>INR</h3><span class="sub">1 reviewed · 1 selected</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="org-inr-panel">
+<button class="grower-pill" data-org-business="simphiwe"><span>Simphiwe Maphanga · Syndikate Productions · 60 / 100</span><span class="open-small">open</span></button>
+</div></section>
+<section class="column">
+<div class="column-header">
+<span class="stage">Step 2</span>
+<h2>Regions</h2>
+<div class="hint">Only regional shortlist shown first · click to open</div>
+</div>
+<button class="summary-card accordion-toggle" data-panel="region-howick-panel">
+<div><h3>🏔️ Howick Region</h3><span class="sub">3 reviewed · Top 5 included</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="region-howick-panel">
+          <button class="grower-pill" data-org-business="xolani"><span>Xolani Mahlangu · Mabhoko Brush Cutter · 61 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="artslave"><span>Art Slave Photography · 55 / 100</span><span class="open-small">open</span></button>
+          <button class="grower-pill" data-org-business="nomvelo"><span>Nomvelo Zuma · Whisked Nibbles Bakery · 70 / 100 · Top 5</span><span class="open-small">open</span></button>
+        </div>
+<button class="summary-card accordion-toggle" data-panel="region-pmb-panel">
+<div><h3>🏙️ Central Pietermaritzburg</h3><span class="sub">Top 1–3</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="region-pmb-panel">
+
+
+
+<button class="grower-pill" data-org-business="corneliaRegional"><span>Cornelia van der Sandt · Garden of Hope · 90 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="nosiphoRegional"><span>Nosipho Cele · Belolugaju Events &amp; Décor · 85 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="sphepheloRegional"><span>Sphephelo Mathonsi · Sponza Ship Sounds · 66 / 100</span><span class="open-small">open</span></button><button class="grower-pill" data-org-business="nomnandiDuct"><span>Nomnandi Sibisi · Nomie’s Gourmets Confections · 64 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="region-durban-panel" onclick="event.preventDefault(); event.stopPropagation(); toggleDurbanRegion();">
+<div><h3>🌊 Durban Region</h3><span class="sub">Top 1–3</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="region-durban-panel">
+
+
+
+<button class="grower-pill" data-org-business="melusi" data-direct-org="melusi" onclick="event.preventDefault(); event.stopPropagation(); openDirectOrg('melusi');"><span>Melusi Mbotho · Inkazimulo Creche &amp; Pre-School · 83 / 100</span><span class="open-small">open</span></button>
+<button class="grower-pill" data-org-business="zinhle" data-direct-org="zinhle" onclick="event.preventDefault(); event.stopPropagation(); openDirectOrg('zinhle');"><span>Zinhle Mpeqeka · Zee In and Out Stylish · 61 / 100</span><span class="open-small">open</span></button>
+<button class="grower-pill" data-org-business="bongeka" data-direct-org="bongeka" onclick="event.preventDefault(); event.stopPropagation(); openDirectOrg('bongeka');"><span>Bongeka Zungu · Sukumasakhe Phinifa Boutique · 61 / 100</span><span class="open-small">open</span></button>
+</div>
+<button class="summary-card accordion-toggle" data-panel="region-ec-panel">
+<div><h3>🌄 Eastern Cape</h3><span class="sub">Top 1–3</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="region-ec-panel">
+
+<button class="grower-pill" data-org-business="kefuwe"><span>Kefuwe Phamotse · TimeLine Studios · 70 / 100</span><span class="open-small">open</span></button></div>
+<button class="summary-card accordion-toggle" data-panel="region-impendle-panel">
+<div><h3>🌿 Impendle Region</h3><span class="sub">Top 1–3</span></div><span class="plus">+</span>
+</button>
+<div class="inline-panel" id="region-impendle-panel">
+
+<button class="grower-pill" data-org-business="simphiwe"><span>Simphiwe Maphanga · Syndikate Productions · 60 / 100</span><span class="open-small">open</span></button></div>
+</section>
+<section class="column">
+<div class="column-header">
+<span class="stage">Step 3</span>
+<h2>Regional Representatives</h2>
+<div class="hint">Confirmed representatives and Top 5 selections · click to open evidence</div>
+</div>
+<div class="top5-list">
+<button class="top5-card" type="button" data-top5="nosipho">
+<div class="top5-photo"><img alt="Nosipho Cele Top 5 profile image" src="assets/images/image_002_f12ff5c43861.jpg"/></div>
+<div><h3>Nosipho Cele</h3><div class="business">Belolugaju Events &amp; Décor · 85 / 100 · Liberty NPO</div><div class="reason-tags"><span>Events &amp; Décor</span><span>Marketing</span><span>Better Systems</span></div></div><span class="open-label">›</span></button>
+<button class="top5-card" type="button" data-top5="nomvelo">
+<div class="top5-photo"><img alt="Nomvelo Zuma Top 5 profile image" src="assets/images/image_003_6b1c261a7c45.jpg"/></div>
+<div><h3>Nomvelo Zuma</h3><div class="business">Whisked Nibbles Bakery · 70 / 100 · Love Umngeni / Howick</div><div class="reason-tags"><span>Bakery</span><span>Finance</span><span>Better Systems</span></div></div><span class="open-label">›</span></button>
+<button class="top5-card" type="button" data-top5="melusi">
+<div class="top5-photo"><img alt="Melusi Mbotho Top 5 profile image" src="assets/images/image_004_3a667864b2bd.jpg"/></div>
+<div><h3>Melusi Mbotho</h3><div class="business">Inkazimulo Creche &amp; Pre-School · 83 / 100 · Use-it</div><div class="reason-tags"><span>Childcare</span><span>Certification</span><span>Better Systems</span></div></div><span class="open-label">›</span></button>
+<button class="top5-card" type="button" data-top5="xolani">
+<div class="top5-photo"><img alt="Xolani Mahlangu Top 5 profile image" src="assets/images/image_005_017e3e769452.jpg"/></div>
+<div><h3>Xolani Mahlangu</h3><div class="business">Mabhoko Brush Cutter · 61 / 100 · WESSA</div><div class="reason-tags"><span>Brush Cutting</span><span>Cash</span><span>Marketing</span></div></div><span class="open-label">›</span></button>
+<button class="top5-card" type="button" data-top5="cornelia">
+<div class="top5-photo"><img alt="Cornelia van der Sandt Top 5 profile image" src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"/></div>
+<div><h3>Cornelia van der Sandt</h3><div class="business">Garden of Hope · 90 / 100 · KPCA</div><div class="reason-tags"><span>Agriculture</span><span>Better Systems</span><span>Marketing</span></div></div><span class="open-label">›</span></button>
+</div>
+</section>
+</main>
+<div class="footer-note">
+      Evidence from Pitch Days · #SelectionBoard · Green Beacons Consulting
+    </div>
+</div>
+
+<div class="image-lightbox" id="imageLightbox">
+  <button type="button" id="closeImageLightbox" aria-label="Close image">×</button>
+  <img id="lightboxImage" alt="Expanded marketing evidence">
+</div>
+<div class="overlay" id="modalOverlay">
+<article class="shelf" id="shelf">
+<button aria-label="Close" class="shelf-close" id="closeShelf">×</button>
+<div class="shelf-hero" id="shelfHero">
+<div class="kicker" id="shelfKicker">Selection Evidence</div>
+<h2 id="shelfTitle">Title</h2>
+<p id="shelfIntro">Intro</p>
+</div>
+<div class="shelf-body" id="shelfBody"></div>
+</article>
+</div>
+<script>
+
+    // =====================================================
+    // EDITABLE FRONT-END DATA
+    // Change Grower names, organisation, region, score,
+    // Notion links, financials, milestones, and support ask here.
+    // =====================================================
+    const imageNosipho = "assets/images/image_002_f12ff5c43861.jpg";
+    const imageHotel = "assets/images/image_001_85472389502f.jpg";
+
+    const imageNomvelo = "assets/images/image_003_6b1c261a7c45.jpg";
+
+    const imageMelusi = "assets/images/image_004_3a667864b2bd.jpg";
+    const imageXolani = "assets/images/image_005_017e3e769452.jpg";
+    const imageMelusiRoom = "assets/images/image_006_b33d27f17426.jpg";
+    const imageMelusiSports = "assets/images/image_007_97b8da08d5d8.jpg";
+    const imageMelusiWall = "assets/images/image_008_7045aa5a6b16.jpg";
+    const imageCornelia = "https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb";
+
+
+    const imageXolaniCover = "assets/images/image_005_017e3e769452.jpg";
+    const imageXolaniCutGrass = "assets/images/image_009_a2365404462f.jpg";
+    const imageXolaniField = "assets/images/image_010_e6fc18316888.jpg";
+    const imageXolaniBookkeeping = "assets/images/image_011_ae7568d28226.jpg";
+
+
+    const imageNomveloGroup = "assets/images/image_012_52f20e6fccfa.jpg";
+    const imageNomveloWhiteCake = "assets/images/image_013_0628afe2c636.jpg";
+    const imageNomveloBiscuits = "assets/images/image_014_5bbe1bbb863a.jpg";
+    const imageNosiphoPinkTable = "assets/images/image_015_bfbaf388d391.jpg";
+    const imageNosiphoPinkChair = "assets/images/image_016_b066411f9383.jpg";
+    const imageNosiphoYellowTable = "assets/images/image_017_62a19ebd77a8.jpg";
+
+    const imageNomveloDonuts = "assets/images/image_018_f38f34c250a5.jpg";
+    const imageNomveloSmallBiscuits = "assets/images/image_014_5bbe1bbb863a.jpg";
+    const top5Growers = {
+      nosipho: {
+        name: "Nosipho Cele",
+        business: "Belolugaju Events & Décor",
+        notionUrl: "https://app.notion.com/p/cancelo10/Bellolugaju-Events-D-cor-34f644d472d78197ae47e1a2380c87c3?source=copy_link",
+        sector: "Events, décor and celebrations",
+        score: "85 / 100",
+        organisation: "Liberty NPO",
+        region: "Central Pietermaritzburg",
+        status: "Chosen for the Top 5",
+        image: imageNosipho,
+        tags: ["Events & Décor", "Marketing", "Better Systems"],
+        financeActivityLabel: "Bookings",
+        businessDescription: "Belolugaju Events & Décor provides event styling and décor for birthdays, children’s parties, family celebrations, and special occasions. The business is visual, easy to showcase, and can grow through photos, referrals, and clear booking packages.",
+        ownersVision: "Owner to write: a short vision statement describing the kind of events brand Belolugaju wants to become, the customers it wants to serve, and the next level of growth it is working toward.",
+        whatIsWorking: "The business has a clear service offering and strong visual potential. Décor is easy for customers to understand when they see quality setup photos, which makes the business suitable for referrals, WhatsApp marketing, and repeat family events.",
+        marketDemand: "Owner to write: a short explanation of the demand for birthdays, children’s parties, umhlonyana, baby showers, graduations, weddings, and small community events in her area.",
+        financeRows: [["Month 1", "R0", "R0", "R0", "R0"], ["Month 2", "R0", "R0", "R0", "R0"], ["Month 3", "R0", "R0", "R0", "R0"], ["Month 4", "R0", "R0", "R0", "R0"], ["Month 5", "R0", "R0", "R0", "R0"]],
+        marketingImages: [imageNosiphoPinkTable, imageNosiphoYellowTable, imageNosiphoPinkChair],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [["Marketing", "Priority: a sharper portfolio, clear packages, and consistent WhatsApp/Facebook proof will make bookings easier."], ["Better Systems", "Priority: a simple booking and deposit tracker will prevent missed follow-ups, unclear balances, and weak customer records."]]
+      },
+      nomvelo: {
+        name: "Nomvelo Zuma",
+        business: "Whisked Nibbles Bakery",
+        notionUrl: "https://app.notion.com/p/cancelo10/Whisked-Nibbles-Bakery-34f644d472d781b78ae5e162e51c4ad0?source=copy_link",
+        sector: "Bakery / customised cakes and gift boxes",
+        score: "70 / 100",
+        organisation: "Love Umngeni / Howick",
+        region: "Howick Region",
+        status: "Chosen for the Top 5",
+        image: imageNomvelo,
+        tags: ["Bakery", "Finance", "Better Systems"],
+        financeActivityLabel: "Sales",
+        businessDescription: "Whisked Nibbles Bakery produces customised celebration cakes, gift boxes, cake slices, and baked treats. The business is built on premium quality, reliable service, and local access to personalised cakes.",
+        ownersVision: "Owner to write: a short vision statement explaining how Whisked Nibbles will grow from home-based production into a trusted local bakery brand.",
+        whatIsWorking: "The pitch shows clear product quality, customer demand, and a strong pricing example. The business already has 2 years of operations, 50+ customised cake orders, and repeat-customer potential.",
+        marketDemand: "Owner to write: a short explanation of demand for birthdays, weddings, baby showers, graduations, anniversaries, corporate events, and weekend cake-slice sales.",
+        financeRows: [["Month 1", "R0", "R0", "R0", "R0"], ["Month 2", "R0", "R0", "R0", "R0"], ["Month 3", "R0", "R0", "R0", "R0"], ["Month 4", "R0", "R0", "R0", "R0"], ["Month 5", "R0", "R0", "R0", "R0"]],
+        marketingImages: [imageNomveloDonuts, imageNomveloWhiteCake, imageNomveloSmallBiscuits],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [["Finance", "Priority: build a monthly tracker for orders, revenue, ingredient costs, packaging, delivery, and profit so the funding ask becomes evidence-based."], ["Better Systems", "Priority: introduce order, deposit, stock, and production tracking so she can handle more orders without losing control."]]
+      },
+      melusi: {
+        name: "Melusi Mbotho",
+        business: "Inkazimulo Creche & Pre-School",
+        notionUrl: "https://app.notion.com/p/cancelo10/Inkazimulo-Creche-Pre-School-4da821fe7c1949cc8f8cbfd4e7cf097c?source=copy_link",
+        sector: "Early childhood education / childcare",
+        score: "83 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        status: "Chosen for the Top 5",
+        image: imageMelusi,
+        tags: ["Childcare", "Certification", "Better Systems"],
+        financeActivityLabel: "School Fees",
+        businessDescription: "Inkazimulo Creche & Pre-School provides early childhood care and learning support for young children in the community. The business creates practical value for working families who need a safe and reliable place for children to learn and be cared for.",
+        ownersVision: "Owner to write: a short vision statement about growing Inkazimulo Creche & Pre-School into a stronger learning environment with better compliance, stronger teaching resources, and improved care for children.",
+        whatIsWorking: "The business already shows meaningful community impact through active childcare, classroom setup, children’s activities, and visible parent-facing events. The photos help show that the creche is operating and serving real families.",
+        marketDemand: "Owner to write: a short explanation of the demand from local households and working parents who need safe, reliable, and affordable early childhood care close to home.",
+        financeRows: [["Month 1", "R0", "R0", "R0", "R0"], ["Month 2", "R0", "R0", "R0", "R0"], ["Month 3", "R0", "R0", "R0", "R0"], ["Month 4", "R0", "R0", "R0", "R0"], ["Month 5", "R0", "R0", "R0", "R0"]],
+        marketingImages: [imageMelusiRoom, imageMelusiSports, imageMelusiWall],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [
+          ["Certification", "Priority: childcare credibility grows when registration, compliance, and learning standards are made visible and easier to trust."],
+          ["Better Systems", "Priority: attendance, school fees, parent records, and child information must be tracked cleanly to support growth and professionalism."]
+        ]
+      },
+      xolani: {
+        name: "Xolani Mahlangu",
+        business: "Mabhoko Brush Cutter",
+        notionUrl: "https://app.notion.com/p/cancelo10/Mabhoko-Brush-Cutter-37c644d472d78024816bef8e16fb7eb2?source=copy_link",
+        sector: "Garden services / land maintenance",
+        score: "61 / 100",
+        organisation: "WESSA",
+        region: "Howick Region",
+        status: "Chosen for the Top 5",
+        image: imageXolaniCover,
+        tags: ["Brush Cutting", "Financial Tracking", "Growth Potential"],
+        financeActivityLabel: "Jobs",
+        financeTitle: "Weekly Bookkeeping — April to May",
+        financeHeaders: ["Week", "Revenue", "Jobs Done", "Expenses", "Profit"],
+        businessDescription: "Mabhoko Brush Cutter provides brush cutting, grass clearing, and land-maintenance services for households, properties, and community spaces. The business addresses a visible local problem and shows clear value through before-and-after work.",
+        ownersVision: "To grow Mabhoko Brush Cutter into a reliable local service business with stronger equipment, more regular clients, and enough capacity to serve households, schools, churches, and open spaces consistently.",
+        whatIsWorking: "The business shows three strong things already: clear problem identification, practical evidence of work done, and real financial tracking. The April–May bookkeeping and field photos make the business easier to trust because they show both operations and proof of work.",
+        marketDemand: "There is ongoing demand for grass cutting and land-maintenance services in homesteads, schools, churches, community sites, and open plots that become overgrown. Customers need affordable, reliable help to keep spaces neat, safe, and usable.",
+        financeRows: [
+          ["April W1: 1–6 Apr", "R1,200", "3 yards", "R420", "R780"],
+          ["April W2: 7–13 Apr", "R850", "2 yards", "R220", "R630"],
+          ["April W3: 14–20 Apr", "R0", "No work — Rain", "R100", "-R100"],
+          ["April W4: 21–27 Apr", "R1,650", "4 yards", "R480", "R1,170"],
+          ["April Total", "R3,700", "9 jobs", "R1,220", "R2,480"],
+          ["May W1: 28 Apr–4 May", "R1,400", "3 yards", "R350", "R1,050"],
+          ["May W2: 5–11 May", "R2,100", "5 yards", "R520", "R1,580"],
+          ["May W3: 12–18 May", "R956", "2 yards", "R270", "R686"],
+          ["May W4: 19–25 May", "R0", "Machine broke", "R450", "-R450"],
+          ["May W5: 26–31 May", "R1,800", "4 yards", "R380", "R1,420"],
+          ["May Total", "R6,250", "14 jobs", "R1,970", "R4,280"],
+          ["2-Month Total", "R9,950", "23 jobs", "R3,190", "R6,760"]
+        ],
+        marketingImages: [imageXolaniCutGrass, imageXolaniField, imageXolaniCover],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [
+          ["Cash", "Priority: equipment and repairs directly affect how many jobs Xolani can take on, how fast work can be completed, and whether service interruptions can be reduced."],
+          ["Marketing", "Priority: the business already has strong visual proof of work. Better packaging of before-and-after results, job photos, and customer referrals can help convert more visible work into repeat business."]
+        ]
+      },
+      cornelia: {
+        name: "Cornelia van der Sandt",
+        business: "Garden of Hope",
+        notionUrl: "https://app.notion.com/p/cancelo10/The-Garden-of-Hope-34f644d472d781a2ab54c434557a09e0?source=copy_link",
+        sector: "Agriculture / community impact",
+        score: "90 / 100",
+        organisation: "KPCA",
+        region: "Central Pietermaritzburg",
+        status: "Chosen for the Top 5",
+        image: imageCornelia,
+        tags: ["Agriculture", "Better Systems", "Marketing"],
+        financeActivityLabel: "Sales",
+        businessDescription: "Garden of Hope is an agriculture-focused business with community value. It can show progress through produce, sales, garden activity, training, and local food impact.",
+        ownersVision: "Owner to write: a short vision statement explaining the future of Garden of Hope, including food production, community support, and sustainable growth.",
+        whatIsWorking: "The business has strong readiness because agriculture creates visible evidence: planting, harvesting, produce, sales, and community benefit. This makes the story easy for assessors and Growers to understand.",
+        marketDemand: "Owner to write: a short explanation of demand for fresh produce, food security, local supply, community gardening, and skills development.",
+        financeRows: [["Month 1", "R0", "R0", "R0", "R0"], ["Month 2", "R0", "R0", "R0", "R0"], ["Month 3", "R0", "R0", "R0", "R0"], ["Month 4", "R0", "R0", "R0", "R0"], ["Month 5", "R0", "R0", "R0", "R0"]],
+        marketingImages: [imageCornelia, "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb", "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [["Better Systems", "Priority: production, harvests, sales, expenses, and impact need a clean monthly evidence system."], ["Marketing", "Priority: the business should package its story through produce photos, customer proof, community impact, and simple product availability updates."]]
+      }
+    };
+
+    const growers = {
+      nosipho: {
+        name: "Nosipho Cele",
+        business: "Belolugaju Events & Décor",
+        sector: "Events, décor and celebrations",
+        score: "87 / 100",
+        organisation: "Liberty NPO",
+        region: "Central Pietermaritzburg",
+        image: imageNosipho,
+        description: "Belolugaju Events & Décor creates celebrations for parties, umhlonyana, birthdays and special events. The business has a clear service offering, strong visual branding, and a practical opportunity to start with focused children's parties before expanding.",
+        financials: "See her Financials, Milestones, Evidence, and Assessment results on this Notion link.",
+        milestones: "Chosen for the Top 5. Full milestones and evidence should be reviewed inside the linked Notion assessment.",
+        assessment: "Full assessment results are available on the linked Notion page.",
+        why: "Strong preparation, clear business idea, strong branding, and visible potential. See her Financials, Milestones, Evidence, and Assessment results on this Notion Link.",
+        status: "Chosen for the Top 5",
+        ask: "Support needed: décor assets, pricing refinement, booking evidence, pitch practice, and a focused starting market for kids' parties.",
+        premiumProfile: {
+          businessDescription: "Belolugaju Events & Décor provides event styling and décor for birthdays, children’s parties, family celebrations, and special occasions. The business is visual, easy to showcase, and can grow through photos, referrals, and clear booking packages.",
+          ownersVision: "Owner to write: a short vision statement describing the kind of events brand Belolugaju wants to become, the customers it wants to serve, and the next level of growth it is working toward.",
+          whatIsWorking: "The business has a clear service offering and strong visual potential. Décor is easy for customers to understand when they see quality setup photos, which makes the business suitable for referrals, WhatsApp marketing, and repeat family events.",
+          marketDemand: "Owner to write: a short explanation of the demand for birthdays, children’s parties, umhlonyana, baby showers, graduations, weddings, and small community events in her area.",
+          financeRows: [
+            ["Month 1", "", "", "", ""],
+            ["Month 2", "", "", "", ""],
+            ["Month 3", "", "", "", ""],
+            ["Month 4", "", "", "", ""],
+            ["Month 5", "", "", "", ""],
+            ["Month 6", "", "", "", ""]
+          ],
+          marketingImages: [imageNosiphoPinkTable, imageNosiphoPinkChair, imageNosiphoYellowTable],
+          suggestedSupport: {
+            options: ["Cash", "Marketing", "Certification", "Better Systems"],
+            priorities: [
+              ["Marketing", "Priority: the business sells through visuals. A sharper portfolio, clear packages, and consistent WhatsApp/Facebook proof will make bookings easier."],
+              ["Better Systems", "Priority: a simple booking and deposit tracker will prevent missed follow-ups, unclear balances, and weak customer records."]
+            ]
+          }
+        }
+      },
+      cornelia: {
+        name: "Cornelia van der Sandt",
+        business: "Garden of Hope",
+        sector: "Agriculture / community impact",
+        score: "To be updated",
+        organisation: "KPCA / Regional Shortlist",
+        region: "Central Pietermaritzburg",
+        image: "",
+        description: "Business details to be pulled from the Grower's Notion page once linked.",
+        financials: "Add sales, expenses, margins, asset needs and proof of activity.",
+        milestones: "Selected to continue competing for the Top 5 selection toward ANEW Hotel Pitch Day.",
+        assessment: "Assessment score and rubric breakdown to be inserted.",
+        why: "Reason for selection to be confirmed from assessment and panel notes.",
+        ask: "Add clear support ask after review."
+      },
+      sphephelo: {
+        name: "Sphephelo Mathonsi",
+        business: "Sponza Ship Sounds",
+        sector: "Sound / events service",
+        score: "To be updated",
+        organisation: "KPCA",
+        region: "Central Pietermaritzburg",
+        image: "",
+        description: "Business details to be pulled from the Grower's Notion page once linked.",
+        financials: "Add booking evidence, equipment costs, revenue, margins and next asset need.",
+        milestones: "Selected to continue competing for the Top 5 selection toward ANEW Hotel Pitch Day.",
+        assessment: "Assessment score and rubric breakdown to be inserted.",
+        why: "Reason for selection to be confirmed from assessment and panel notes.",
+        ask: "Add clear support ask after review."
+      },
+      nomvelo: {
+        name: "Nomvelo Zuma",
+        business: "Whisked Nibbles Bakery",
+        sector: "Bakery / customised cakes and gift boxes",
+        score: "70 / 100",
+        organisation: "Love Umngeni / Howick",
+        region: "Howick Region",
+        image: imageNomvelo,
+        status: "Chosen for the Top 5",
+        description: "Whisked Nibbles Bakery produces customised celebration cakes, gift boxes, cake slices, and baked treats. The business is built on premium quality, reliable service, and local access to personalised cakes.",
+        premiumProfile: {
+          businessDescription: "Whisked Nibbles Bakery produces customised celebration cakes, gift boxes, cake slices, and baked treats. The business is built on premium quality, reliable service, and local access to personalised cakes.",
+          ownersVision: "Owner to write: a short vision statement explaining how Whisked Nibbles will grow from home-based production into a trusted local bakery brand.",
+          whatIsWorking: "The pitch shows clear product quality, customer demand, and a strong pricing example. The business already has 2 years of operations, 50+ customised cake orders, and repeat-customer potential.",
+          marketDemand: "Owner to write: a short explanation of demand for birthdays, weddings, baby showers, graduations, anniversaries, corporate events, and weekend cake-slice sales.",
+          financeRows: [["Month 1", "", "", "", ""], ["Month 2", "", "", "", ""], ["Month 3", "", "", "", ""], ["Month 4", "", "", "", ""], ["Month 5", "", "", "", ""], ["Month 6", "", "", "", ""]],
+          marketingImages: [imageNomveloDonuts, imageNomveloWhiteCake, imageNomveloSmallBiscuits],
+          suggestedSupport: {
+            options: ["Cash", "Marketing", "Certification", "Better Systems"],
+            priorities: [
+              ["Finance", "Priority: build a monthly tracker for orders, revenue, ingredient costs, packaging, delivery, and profit so the funding ask becomes evidence-based."],
+              ["Better Systems", "Priority: introduce order, deposit, stock, and production tracking so she can handle more orders without losing control."]
+            ]
+          }
+        }
+      },
+      melusiTop: {
+        name: "Melusi Mbotho",
+        business: "Inkazimulo Creche & Pre-School",
+        sector: "Early childhood education / childcare",
+        score: "83 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        image: imageMelusi,
+        status: "Chosen for the Top 5",
+        description: "Inkazimulo Creche & Pre-School is an education and childcare business serving young children and families. The business needs to show both operational readiness and parent/community trust.",
+        premiumProfile: {
+          businessDescription: "Inkazimulo Creche & Pre-School provides early childhood care and learning support for young children. The business has strong community value because it supports working families and early learning.",
+          ownersVision: "Owner to write: a short vision statement explaining the creche’s growth, child-safety standards, learning environment, and future capacity.",
+          whatIsWorking: "The business has a clear social purpose and a strong score. Childcare is a serious community need, and the pitch suggests a service that can grow if compliance, trust, and operations are strengthened.",
+          marketDemand: "Owner to write: a short explanation of demand from parents, guardians, working families, and local households that need safe and reliable childcare.",
+          financeRows: [["Month 1", "", "", "", ""], ["Month 2", "", "", "", ""], ["Month 3", "", "", "", ""], ["Month 4", "", "", "", ""], ["Month 5", "", "", "", ""], ["Month 6", "", "", "", ""]],
+          marketingImages: [
+            imageMelusi,
+            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
+            "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"
+          ],
+          suggestedSupport: {
+            options: ["Cash", "Marketing", "Certification", "Better Systems"],
+            priorities: [
+              ["Certification", "Priority: childcare businesses need trust, safety, and compliance. Certification or compliance support strengthens parent confidence and funder readiness."],
+              ["Better Systems", "Priority: attendance, parent records, payments, meals, safety checks, and child information must be tracked cleanly."]
+            ]
+          }
+        }
+      },
+      bongekaRegional: {
+        name: "Bongeka Zungu",
+        business: "Sukumasakhe Phinifa Boutique",
+        sector: "Retail / boutique",
+        score: "61 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        image: imageMelusi,
+        status: "Chosen to represent their Region",
+        description: "Sukumasakhe Phinifa Boutique is a growing boutique business under Use-it. The business now meets the regional threshold after the proof of business success score was improved to reflect the evidence presented.",
+        why: "Chosen for Regional. Bongeka’s business proof was improved from 18 / 30 to 20 / 30, bringing the overall score to 61 / 100 and moving the business into regional selection.",
+        ask: "Next support focus: make customer proof, pricing, and financial records easier to verify in one clear tracker."
+      },
+
+      melusiRegional: {
+        name: "Melusi Mbotho",
+        business: "Inkazimulo Creche & Pre-School",
+        sector: "Early childhood education / childcare",
+        score: "83 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        image: imageMelusi,
+        status: "Chosen to represent their Region",
+        description: "Inkazimulo Creche & Pre-School was selected to represent the Durban Region and later advanced into the Top 5. The business shows visible community service, active childcare, and strong growth potential.",
+        why: "Chosen for Regional because the business is operating, serving children, and showing clear social value together with strong potential for further development.",
+        ask: "Next support focus: certification and better systems so attendance, school fees, parent records, and child information are tracked professionally."
+      },
+      zinhleRegional: {
+        name: "Zinhle Mpeqeka",
+        business: "Zee In and Out Stylish",
+        sector: "Fashion / styling",
+        score: "61 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        image: imageMelusi,
+        status: "Chosen to represent their Region",
+        description: "Zee In and Out Stylish is a Durban Region representative from Use-it. The business met the regional threshold and was selected to move forward.",
+        why: "Chosen for Regional based on the pitch assessment and readiness shown at organisational level.",
+        ask: "Next support focus: keep building proof of customers, products, and simple financial evidence."
+      },
+      xolaniTop: {
+        name: "Xolani Mahlangu",
+        business: "Mabhoko Brush Cutter",
+        sector: "Garden services / land maintenance",
+        score: "61 / 100",
+        organisation: "WESSA",
+        region: "Howick Region",
+        image: imageXolani,
+        status: "Chosen for the Top 5",
+        description: "Mabhoko Brush Cutter provides brush cutting and land-maintenance services for households, properties, and community spaces.",
+        premiumProfile: {
+          businessDescription: "Mabhoko Brush Cutter offers practical land-maintenance services such as brush cutting, clearing, and yard improvement. The service has visible value because before-and-after results are easy to prove.",
+          ownersVision: "Owner to write: a short vision statement explaining how the business will grow its client base, improve equipment, and become a reliable local maintenance service.",
+          whatIsWorking: "The business solves a visible local problem. It can show value through before-and-after photos, completed jobs, and customer feedback, which makes the service easy to understand.",
+          marketDemand: "Owner to write: a short explanation of demand from households, schools, churches, businesses, property owners, and community spaces needing regular maintenance.",
+          financeRows: [["Month 1", "", "", "", ""], ["Month 2", "", "", "", ""], ["Month 3", "", "", "", ""], ["Month 4", "", "", "", ""], ["Month 5", "", "", "", ""], ["Month 6", "", "", "", ""]],
+          marketingImages: [
+            imageXolani,
+            "https://images.unsplash.com/photo-1599685315640-7a8f2b0f0301?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
+            "https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"
+          ],
+          suggestedSupport: {
+            options: ["Cash", "Marketing", "Certification", "Better Systems"],
+            priorities: [
+              ["Cash", "Priority: equipment directly affects capacity, speed, and job quality for brush cutting and maintenance work."],
+              ["Marketing", "Priority: before-and-after photos, WhatsApp referrals, and a simple service menu can convert visible work into more bookings."]
+            ]
+          }
+        }
+      },
+      corneliaTop: {
+        name: "Cornelia van der Sandt",
+        business: "Garden of Hope",
+        sector: "Agriculture / community impact",
+        score: "90 / 100",
+        organisation: "KPCA",
+        region: "Central Pietermaritzburg",
+        image: imageCornelia,
+        status: "Chosen for the Top 5",
+        description: "Garden of Hope is an agriculture and community-impact business with strong evidence potential around production, food value, skills, and local support.",
+        premiumProfile: {
+          businessDescription: "Garden of Hope is an agriculture-focused business with community value. It can show progress through produce, sales, garden activity, training, and local food impact.",
+          ownersVision: "Owner to write: a short vision statement explaining the future of Garden of Hope, including food production, community support, and sustainable growth.",
+          whatIsWorking: "The business has strong readiness because agriculture creates visible evidence: planting, harvesting, produce, sales, and community benefit. This makes the story easy for assessors and Growers to understand.",
+          marketDemand: "Owner to write: a short explanation of demand for fresh produce, food security, local supply, community gardening, and skills development.",
+          financeRows: [["Month 1", "", "", "", ""], ["Month 2", "", "", "", ""], ["Month 3", "", "", "", ""], ["Month 4", "", "", "", ""], ["Month 5", "", "", "", ""], ["Month 6", "", "", "", ""]],
+          marketingImages: [
+            imageCornelia,
+            "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb",
+            "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.1.0&q=85&fm=jpg&crop=entropy&cs=srgb"
+          ],
+          suggestedSupport: {
+            options: ["Cash", "Marketing", "Certification", "Better Systems"],
+            priorities: [
+              ["Better Systems", "Priority: production, harvests, sales, expenses, and impact need a clean monthly evidence system."],
+              ["Marketing", "Priority: the business should package its story through produce photos, customer proof, community impact, and simple product availability updates."]
+            ]
+          }
+        }
+      }
+    };
+
+
+    const orgBusinesses = {
+      bongiwe: {
+        name: "Bongiwe Funeka",
+        business: "Owenkosi’s Beauty Hair Salon",
+        organisation: "Liberty NPO",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/cancelo10/Owenkosi-s-Beauty-Hair-Salon-356644d472d780a2b2dcec7ad643f957?source=copy_link",
+        assessor: "Panelists 3",
+        score: "31 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "0 / 3"],
+          ["Business Idea Test", "5 / 8"],
+          ["Innovative Product / Service", "8 / 15"],
+          ["Proof of Business Success", "7 / 30"],
+          ["Financial Management", "0 / 15"],
+          ["Strong Brand, Marketing, Sales", "9 / 20"],
+          ["Social & Environmental Impact", "0 / 5"],
+          ["Future Growth Prospects", "2 / 4"]
+        ],
+        businessPitch: [
+          "Active salon concept with clear services: braids, installations, house calls, and personalised styling.",
+          "Good effort on the Notion page: business description, services, pricing, target market, and funding request are included.",
+          "The house-call service is a strong advantage.",
+          "The funding request is clear: R10,000 for equipment, products/retail inventory, and marketing."
+        ],
+        finalAssessment: [
+          "Clear business vision, but presentation confidence still needs work.",
+          "Needs stronger proof of customers, bookings, photos, income, and repeat clients.",
+          "The funding request is useful, but current financial evidence must be updated monthly."
+        ],
+        nextStep: "Build proof weekly: before/after photos, WhatsApp testimonials/screenshots, and a simple bookings log. Track revenue, costs, profit, and reinvestment for 3 straight months.",
+        notion: "https://app.notion.com/p/cancelo10/Bongiwe-Funeka-Owenkosi-s-Beauty-Hair-Salon-3a4644d472d780f6a2a6ed332a978ef7?source=copy_link"
+      },
+      bandile: {
+        name: "Bandile Mthethwa",
+        business: "Mobile Beauty Therapy",
+        organisation: "Worlds View",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d78117be18c531e653a8e4?pvs=1",
+        assessor: "Panelists 3",
+        score: "40 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "1 / 3"],
+          ["Business Idea Test", "3 / 8"],
+          ["Innovative Product / Service", "9 / 15"],
+          ["Proof of Business Success", "10 / 30"],
+          ["Financial Management", "6 / 15"],
+          ["Strong Brand, Marketing, Sales", "7 / 20"],
+          ["Social & Environmental Impact", "2 / 5"],
+          ["Future Growth Prospects", "2 / 4"]
+        ],
+        businessPitch: [
+          "Strong mobile beauty concept that brings services to clients at home.",
+          "Good effort on the Notion page: business description, target market, logo, flyer, social banner, and module progress are included.",
+          "The panel recognised good financial thinking and encouraged her not to downplay herself."
+        ],
+        finalAssessment: [
+          "Good foundation, but social media presence and customer evidence need to improve.",
+          "The finance page exists, but it needs actual sales, costs, profit, and booking records.",
+          "House calls and office calls should become her strongest focus."
+        ],
+        nextStep: "Lock down 2–3 core services, build evidence weekly, and turn the finance page into a real monthly tracker.",
+        notion: "https://app.notion.com/p/3a4644d472d78051b410f0b8836b2a7d?source=copy_link"
+      },
+      thembeka: {
+        name: "Thembeka Promise Ndlovu",
+        business: "Thembekile’s Beauty Palace",
+        organisation: "Liberty NPO",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d781b88a9dc4bd3846f5ac?pvs=1",
+        assessor: "Panelists 3",
+        score: "21 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "1 / 3"],
+          ["Business Idea Test", "2 / 8"],
+          ["Innovative Product / Service", "8 / 15"],
+          ["Proof of Business Success", "3 / 30"],
+          ["Financial Management", "0 / 15"],
+          ["Strong Brand, Marketing, Sales", "5 / 20"],
+          ["Social & Environmental Impact", "0 / 5"],
+          ["Future Growth Prospects", "2 / 4"]
+        ],
+        businessPitch: [
+          "Well-presented business page with a clear slogan, business description, services, visuals, and pitch deck.",
+          "Good effort in showing salon services and future growth ideas.",
+          "The pitch showed confidence and good presentation ability."
+        ],
+        finalAssessment: [
+          "The business has potential, but should not expand too quickly into too many services.",
+          "Needs more consistent social media activity, stronger financial records, and more customer evidence.",
+          "The panel advised her to work with what she already has and build step by step."
+        ],
+        nextStep: "Lock down the Core 3 hair services, build a proof pack, run a monthly finance tracker, and post consistently before expanding into nails/lashes.",
+        notion: "https://app.notion.com/p/3a4644d472d780968c24cea038ec9f5e?source=copy_link"
+      },
+      charity: {
+        name: "Charity Nomcebo Mlambo",
+        business: "African Essence Beauty Salon",
+        organisation: "Worlds View",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/350644d472d780ef9c6be81e294f0d53?pvs=1",
+        assessor: "Panelists 3",
+        score: "64 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "1 / 3"],
+          ["Business Idea Test", "5 / 8"],
+          ["Innovative Product / Service", "12 / 15"],
+          ["Proof of Business Success", "18 / 30"],
+          ["Financial Management", "9 / 15"],
+          ["Strong Brand, Marketing, Sales", "15 / 20"],
+          ["Social & Environmental Impact", "1 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Strong salon identity and clear slogan: “Your essence. Your beauty. Your pride.”",
+          "Good effort on the Notion page: business description, pitch script, services, and customer responsibilities are included.",
+          "Finances were updated with 7-day money tracking.",
+          "The finance page shows recorded sales and a weekly total of R860; the business page shows Profit to Date: R3,500."
+        ],
+        finalAssessment: [
+          "Charity has real business evidence, but the business focus must be sharper.",
+          "The panel advised her to focus on salon and beauty-related products, not unrelated areas like fast food.",
+          "Social media presence and unique selling point still need improvement."
+        ],
+        nextStep: "Tighten core services, keep monthly records, attach customer evidence, build a proof pack, and make the R67,800 request show a clear link to more clients and higher profit.",
+        notion: "https://app.notion.com/p/3a4644d472d780c4b545c22d6c0ceb8b?source=copy_link"
+      },
+      corneliaRegional: {
+        name: "Cornelia van der Sandt",
+        business: "Garden of Hope",
+        organisation: "KPCA",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d781a2ab54c434557a09e0?pvs=1",
+        assessor: "Panelists 3",
+        score: "90 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "14 / 15"],
+          ["Proof of Business Success", "26 / 30"],
+          ["Financial Management", "15 / 15"],
+          ["Strong Brand, Marketing, Sales", "16 / 20"],
+          ["Social & Environmental Impact", "5 / 5"],
+          ["Future Growth Prospects", "4 / 4"]
+        ],
+        businessPitch: [
+          "Strong and serious business presentation.",
+          "Clear evidence of business activity, financial discipline, and social/community value.",
+          "The business feels mature compared to many pitches because there is clear activity, commitment, and a broader purpose behind the work."
+        ],
+        finalAssessment: [
+          "Chosen to represent the region because the pitch showed strong preparation and defensible business evidence.",
+          "Panel noted good time investment and different income streams.",
+          "Next step is readiness practice with Matt and the DUCT Pathways team for ANEW Hotel Pitch Day."
+        ],
+        nextStep: "Practice with Matt and the DUCT Pathways team to confirm readiness for the ANEW Hotel Pitch Day.",
+        notion: "https://app.notion.com/p/94b93bbe7fc9477c9a7c383f1fa0f971"
+      },
+      nosiphoRegional: {
+        name: "Nosipho Cele",
+        business: "Belolugaju Events & Décor",
+        organisation: "Liberty NPO",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d78197ae47e1a2380c87c3?pvs=1",
+        assessor: "Panelists 3",
+        score: "85 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "13 / 15"],
+          ["Proof of Business Success", "24 / 30"],
+          ["Financial Management", "12 / 15"],
+          ["Strong Brand, Marketing, Sales", "17 / 20"],
+          ["Social & Environmental Impact", "5 / 5"],
+          ["Future Growth Prospects", "4 / 4"]
+        ],
+        businessPitch: [
+          "Clear service offering and strong potential in events and décor.",
+          "Panel advised her to initially focus on kids' parties as a clear starting market.",
+          "Strong preparation and strong business idea."
+        ],
+        finalAssessment: [
+          "Chosen to represent the region because the business has a clear service offer, strong branding, and strong growth potential.",
+          "The next improvement is stronger evidence of bookings, customer interest, décor work already completed, pricing, and asset needs.",
+          "Event assets can pay themselves back through rental and repeated use."
+        ],
+        nextStep: "Focus on kids’ parties, strengthen proof of bookings and customer interest, and practise with Matt and the DUCT Pathways team for ANEW Hotel readiness.",
+        notion: "https://app.notion.com/p/eca485d394314b768fdd7c700845a3af"
+      },
+      sphepheloRegional: {
+        name: "Sphephelo Mathonsi",
+        business: "Sponza Ship Sounds",
+        organisation: "KPCA",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d78187a772cb26d8a84047?pvs=1",
+        assessor: "Panelists 3",
+        score: "66 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "6 / 8"],
+          ["Innovative Product / Service", "12 / 15"],
+          ["Proof of Business Success", "17 / 30"],
+          ["Financial Management", "9 / 15"],
+          ["Strong Brand, Marketing, Sales", "13 / 20"],
+          ["Social & Environmental Impact", "3 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Practical sound hire and DJ business that connects well with events, décor, parties, and community functions.",
+          "Panel noted that equipment is expensive, which is both an advantage and a disadvantage.",
+          "The advantage is that equipment creates value and barriers to entry."
+        ],
+        finalAssessment: [
+          "Chosen to represent the region because the service is practical and can partner well with events and décor businesses.",
+          "The pitch becomes stronger if he shows proof of equipment owned, previous bookings, pricing, customer feedback, and a stronger online presence.",
+          "Panel suggested potential partnership with Nosipho when she is invited for events."
+        ],
+        nextStep: "Improve social media presence, document equipment and bookings, and practise with Matt and the DUCT Pathways team for ANEW Hotel readiness.",
+        notion: "https://app.notion.com/p/8b808f851a8b4e0ebc0783aa1a67b917"
+      },
+      kefuwe: {
+        name: "Kefuwe Phamotse",
+        business: "TimeLine Studios",
+        organisation: "ERS",
+        region: "Eastern Cape",
+        profile: "https://app.notion.com/p/34f644d472d780a88061e701e1b4da44",
+        assessor: "Panelists 3",
+        score: "70 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "8 / 15"],
+          ["Proof of Business Success", "17 / 30"],
+          ["Financial Management", "6 / 15"],
+          ["Strong Brand, Marketing, Sales", "20 / 20"],
+          ["Social & Environmental Impact", "4 / 5"],
+          ["Future Growth Prospects", "4 / 4"]
+        ],
+        businessPitch: [
+          "Strong brand and marketing performance, with full marks for Strong Brand, Marketing, Sales.",
+          "Clear future growth prospects, with full marks for Future Growth Prospects.",
+          "A web design studio is rarer in the reviewed group and can serve businesses beyond one locality."
+        ],
+        finalAssessment: [
+          "The foundation is strong and the market fit looks real.",
+          "The biggest unlock is strengthening product/service evidence and improving financial records.",
+          "Next improvement: turn proof into a simple monthly dashboard for clients, revenue, costs, and profit."
+        ],
+        why: "Kefuwe was selected because TimeLine Studios has a clear digital service that can grow beyond one locality. A website studio can serve clients in Matatiele, the Eastern Cape, and nationally through remote delivery. The business can grow from one person into a small team or agency, and it has strong revenue upside through higher-ticket website packages plus recurring retainers for maintenance, SEO, hosting, and updates.",
+        nextStep: "Practice with Matt and the DUCT Pathways team to confirm readiness for the ANEW Hotel Pitch Day.",
+        organisationAdvice: "Package the offer into 2–3 clear website packages — Starter, Growth, and Pro — with fixed deliverables, timelines, and pricing. Track every client for the next 90 days in one simple tracker: lead source, quote sent, deal closed, revenue, costs, and profit. Publish three case studies showing the before/after, the client problem, what was built, the result, and a testimonial. Move from once-off builds into monthly retainers so revenue becomes more predictable.",
+        notion: "https://app.notion.com/p/f013161904f54c349c2103421e67a93f"
+      },
+      reitumetse: {
+        name: "Reitumetse Moeti",
+        business: "Hair by TumiMoeti",
+        organisation: "ERS",
+        region: "Eastern Cape",
+        profile: "https://app.notion.com/p/34f644d472d7811487e0ed00b9946be8",
+        assessor: "Panelists 3",
+        score: "56 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "7 / 15"],
+          ["Proof of Business Success", "18 / 30"],
+          ["Financial Management", "6 / 15"],
+          ["Strong Brand, Marketing, Sales", "8 / 20"],
+          ["Social & Environmental Impact", "4 / 5"],
+          ["Future Growth Prospects", "2 / 4"]
+        ],
+        businessPitch: [
+          "Strong visible product and service quality.",
+          "Clear pricing menu.",
+          "Proof of sales exists through photos and video on the business page."
+        ],
+        finalAssessment: [
+          "Strong visible product/service quality and clear pricing menu.",
+          "Proof of sales exists, but business-success evidence and monthly financial records are still thin.",
+          "Biggest unlock: consistent monthly client/revenue tracking plus customer proof such as repeat clients and testimonials."
+        ],
+        nextStep: "You have skill and a clean menu — now build the business record. For the next 30 days, capture proof for every client: before/after, price, and date. Collect 10 WhatsApp testimonials. Start a monthly tracker that totals clients served, revenue, costs, profit, and repeat clients. Once records are consistent for 3 months, you will be in a stronger position for the next selection.",
+        notion: "https://app.notion.com/p/57c7d8c2e5fe4129ab761d50eb7dd4cb"
+      },
+      lonwabo: {
+        name: "Lonwabo Gqojana",
+        business: "Farm Livestock Supply",
+        organisation: "ERS",
+        region: "Eastern Cape",
+        profile: "https://app.notion.com/p/34f644d472d78157880ac1ed8836c17c",
+        assessor: "Panelists 3",
+        score: "47 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "5 / 8"],
+          ["Innovative Product / Service", "7 / 15"],
+          ["Proof of Business Success", "12 / 30"],
+          ["Financial Management", "4 / 15"],
+          ["Strong Brand, Marketing, Sales", "10 / 20"],
+          ["Social & Environmental Impact", "3 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Clear product offering with visible livestock evidence.",
+          "Local pricing is shown on the business page.",
+          "Product proof and pricing proof exist, but the business needs stronger monthly records."
+        ],
+        finalAssessment: [
+          "Clear product offering with visible livestock evidence and local pricing.",
+          "The biggest gap is monthly business proof: bookings or sales count, revenue trend, costs, and profit.",
+          "Next improvement: keep consistent records and show repeat customers or orders."
+        ],
+        nextStep: "The animals and pricing are real — but the score rises when the numbers are clean. For the next 90 days, track every sale: date, customer, item, price, cost, profit, and payment. Summarize each month: animals sold, revenue, costs, profit, losses, and repeat buyers. Add photo proof of stock and deliveries, and show one simple plan for how profit will be reinvested into feed, housing, or breeding stock.",
+        notion: "https://app.notion.com/p/7d73a1ab211243cbb12098691dbd29ed"
+      },
+      lihle: {
+        name: "Lihle Marawule",
+        business: "Triple Threat Salon",
+        organisation: "ERS",
+        region: "Eastern Cape",
+        profile: "https://app.notion.com/p/34f644d472d781c885dfed4ac107c10e",
+        assessor: "Panelists 3",
+        score: "62 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "6 / 8"],
+          ["Innovative Product / Service", "8 / 15"],
+          ["Proof of Business Success", "15 / 30"],
+          ["Financial Management", "9 / 15"],
+          ["Strong Brand, Marketing, Sales", "15 / 20"],
+          ["Social & Environmental Impact", "3 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Strong proof of work uploaded through multiple photos and video.",
+          "Strong programme compliance across weeks 1–9.",
+          "Modules were completed with evidence, including financial tracking and customer feedback."
+        ],
+        finalAssessment: [
+          "The page shows strong evidence: services, visuals, sales proof, financial tracking work, and customer feedback.",
+          "To protect this score, records must stay consistent month-to-month, not only during programme weeks.",
+          "Next improvement: keep a clean monthly summary covering clients, revenue, costs, and profit so the evidence compounds."
+        ],
+        nextStep: "Your work quality is visible — now make the business measurable. Keep your Core 3 styles and turn every booking into evidence: before/after, price, and date. Build a monthly tracker for clients, revenue, costs, profit, and repeat clients, and keep it updated for 3 months. Innovation is not simply being a salon; it is your system, so document your process, turnaround times, and client retention.",
+        notion: "https://app.notion.com/p/bb980264e4354759a202da91911cb21d"
+      },
+      melusi: {
+        name: "Melusi Mbotho",
+        business: "Inkazimulo Creche & Pre-School",
+        notionUrl: "https://app.notion.com/p/cancelo10/Inkazimulo-Creche-Pre-School-4da821fe7c1949cc8f8cbfd4e7cf097c?source=copy_link",
+        sector: "Early childhood education / childcare",
+        score: "83 / 100",
+        organisation: "Use-it",
+        region: "Durban Region",
+        status: "Chosen for the Top 5",
+        image: imageMelusi,
+        tags: ["Childcare", "Certification", "Better Systems"],
+        financeActivityLabel: "School Fees",
+        businessDescription: "Inkazimulo Creche & Pre-School provides early childhood care and learning support for young children in the community. The business creates practical value for working families who need a safe and reliable place for children to learn and be cared for.",
+        ownersVision: "Owner to write: a short vision statement about growing Inkazimulo Creche & Pre-School into a stronger learning environment with better compliance, stronger teaching resources, and improved care for children.",
+        whatIsWorking: "The business already shows meaningful community impact through active childcare, classroom setup, children’s activities, and visible parent-facing events. The photos help show that the creche is operating and serving real families.",
+        marketDemand: "Owner to write: a short explanation of the demand from local households and working parents who need safe, reliable, and affordable early childhood care close to home.",
+        financeRows: [["Month 1", "R0", "R0", "R0", "R0"], ["Month 2", "R0", "R0", "R0", "R0"], ["Month 3", "R0", "R0", "R0", "R0"], ["Month 4", "R0", "R0", "R0", "R0"], ["Month 5", "R0", "R0", "R0", "R0"]],
+        marketingImages: [imageMelusiRoom, imageMelusiSports, imageMelusiWall],
+        supportOptions: ["Cash", "Marketing", "Certification", "Better Systems"],
+        supportPriorities: [
+          ["Certification", "Priority: childcare credibility grows when registration, compliance, and learning standards are made visible and easier to trust."],
+          ["Better Systems", "Priority: attendance, school fees, parent records, and child information must be tracked cleanly to support growth and professionalism."]
+        ]
+      },
+      xolani: {
+        name: "Xolani Mahlangu",
+        business: "Mabhoko Brush Cutter",
+        organisation: "WESSA",
+        region: "Howick Region",
+        profile: "https://app.notion.com/p/cancelo10/Mabhoko-Brush-Cutter-37c644d472d78024816bef8e16fb7eb2?v=f9a641c6ca61416097238dfe8e14e96e&source=copy_link",
+        assessor: "Panelists 3",
+        score: "61 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "6 / 8"],
+          ["Innovative Product / Service", "10 / 15"],
+          ["Proof of Business Success", "18 / 30"],
+          ["Financial Management", "8 / 15"],
+          ["Strong Brand, Marketing, Sales", "9 / 20"],
+          ["Social & Environmental Impact", "4 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Brush cutting service with clear community need and visible practical value.",
+          "Good proof of business activity compared to most WESSA entries, especially around real service delivery.",
+          "Strong social and environmental relevance because the service supports cleaner, safer, better-maintained spaces."
+        ],
+        finalAssessment: [
+          "Chosen for Howick Region because the score and business activity show stronger readiness than the other WESSA entry.",
+          "The next gap is evidence packaging: customer records, before/after photos, bookings, revenue, expenses, and profit need to be made audit-ready.",
+          "Fastest unlock: create a simple job tracker and finance tracker for every brush cutting job."
+        ],
+        why: "Xolani was chosen because Mabhoko Brush Cutter has a practical service that solves a visible local problem and can show direct impact through before/after work. The business has regional potential if job proof, customer records, and monthly finances are packaged clearly.",
+        nextStep: "You have been chosen for regional — now make the proof clean. For the next 4 weeks, track every job: date, client/location, service done, before/after photos, amount charged, transport/fuel costs, equipment costs, and profit. Add WhatsApp confirmations or customer feedback where possible. Re-pitch with three numbers: jobs completed, revenue earned, and profit made.",
+        notion: "https://app.notion.com/p/3ab644d472d780639f0ae8b5c0804f19"
+      },
+      "bandile-radebe": {
+        name: "Bandile Radebe",
+        business: "Bandile’s Smart CVs",
+        organisation: "WESSA",
+        region: "Howick Region",
+        profile: "https://app.notion.com/p/cancelo10/Bandile-s-Smart-CVs-390644d472d78054bc94c9fe285069d1?source=copy_link",
+        assessor: "Panelists 3",
+        score: "51 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "2 / 3"],
+          ["Business Idea Test", "5 / 8"],
+          ["Innovative Product / Service", "12 / 15"],
+          ["Proof of Business Success", "12 / 30"],
+          ["Financial Management", "7 / 15"],
+          ["Strong Brand, Marketing, Sales", "8 / 20"],
+          ["Social & Environmental Impact", "2 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Smart CV service with a useful and understandable offer for job seekers.",
+          "Strong product/service score shows the idea is relevant and can be packaged well.",
+          "Main gap is stronger proof of paying customers, repeat use, and a clean finance tracker."
+        ],
+        finalAssessment: [
+          "Good business idea with practical value, but not chosen in this round.",
+          "Needs clearer customer evidence, testimonials, before/after CV examples, and monthly revenue/profit records.",
+          "Fastest unlock: turn each CV job into proof with client, service, price, feedback, and outcome."
+        ],
+        nextStep: "Build a 30-day proof pack: list every CV completed, client name or initials, price charged, date, proof of payment, and customer feedback. Add before/after examples with private details removed. Track monthly revenue, costs, and profit. Re-pitch by showing how many job seekers were helped and how many returned or referred someone.",
+        notion: "https://app.notion.com/p/3ab644d472d780639f0ae8b5c0804f19"
+      },
+      nomvelo: {
+        name: "Nomvelo Zuma",
+        business: "Whisked Nibbles Bakery",
+        organisation: "Love Umngeni / Howick",
+        region: "Howick Region",
+        profile: "https://app.notion.com/p/34f644d472d781b78ae5e162e51c4ad0",
+        assessor: "Panelists 3",
+        score: "70 / 100",
+        result: "Chosen for Howick Region · Chosen by Matt for Top 5",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "13 / 15"],
+          ["Proof of Business Success", "18 / 30"],
+          ["Financial Management", "8 / 15"],
+          ["Strong Brand, Marketing, Sales", "15 / 20"],
+          ["Social & Environmental Impact", "2 / 5"],
+          ["Future Growth Prospects", "4 / 4"]
+        ],
+        businessPitch: [
+          "Strong story and clear market gap: premium customised cakes were not easily accessible locally.",
+          "Strong product quality and proof of capability with a clear offer range: custom cakes, gift boxes, and slices.",
+          "Chosen by Matt for the Top 5 after being selected for the Howick Region."
+        ],
+        finalAssessment: [
+          "Strong branding and premium product offer with clear demand.",
+          "Missing: monthly finance records and repeat-customer proof that is verifiable.",
+          "Fastest unlock: create a monthly tracker and attach receipts/orders so growth becomes undeniable."
+        ],
+        nextStep: "Build one monthly table: Month, orders, revenue, ingredient costs, packaging/delivery costs, and profit. Add proof through customer orders, deposit receipts, product photos, and named testimonials.",
+        notion: "https://app.notion.com/p/3ac644d472d78066b74bdec55c7ac3a2?source=copy_link"
+      },
+      nomnandiDuct: {
+        name: "Nomnandi Sibisi",
+        business: "Nomie’s Gourmets Confections",
+        organisation: "DUCT",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/cancelo10/Nomie-s-Gourmets-Confections-Nomnandi-Sibisi-34f644d472d7814a88aeddf0ef21cf9e?source=copy_link",
+        assessor: "Panelists 3",
+        score: "64 / 100",
+        result: "Chosen for Regional",
+        resultClass: "green",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "13 / 15"],
+          ["Proof of Business Success", "22 / 30"],
+          ["Financial Management", "9 / 15"],
+          ["Strong Brand, Marketing, Sales", "8 / 20"],
+          ["Social & Environmental Impact", "0 / 5"],
+          ["Future Growth Prospects", "2 / 4"]
+        ],
+        businessPitch: [
+          "Strong pitch and strong slides.",
+          "Clear product quality and proof of business success.",
+          "Chosen for Regional, but the weak link is branding proof and audit-ready finance records."
+        ],
+        finalAssessment: [
+          "Ready for Regional based on the current pitch score and business proof.",
+          "Needs stronger branding evidence, sales proof, and clean finance records.",
+          "Fastest unlock: turn orders, costs, profits, customer feedback, and product photos into one proof pack."
+        ],
+        nextStep: "Prepare for Regional with a clean proof pack: product photos, customer orders, revenue, expenses, profit, pricing, testimonials, and a clearer brand story.",
+        notion: "https://app.notion.com/p/3aa644d472d780499f41cf9cd646f60c?source=copy_link"
+      },
+      dumisaniDuct: {
+        name: "Dumisani Kubheka",
+        business: "Black Roots",
+        organisation: "DUCT",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/cancelo10/Black-Roots-34f644d472d781d2b320ee4d752b4794?v=d0412ab904a34cb9b6cea019dbe677d2&source=copy_link",
+        assessor: "Panelists 3",
+        score: "23 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "2 / 15"],
+          ["Proof of Business Success", "0 / 30"],
+          ["Financial Management", "2 / 15"],
+          ["Strong Brand, Marketing, Sales", "5 / 20"],
+          ["Social & Environmental Impact", "3 / 5"],
+          ["Future Growth Prospects", "1 / 4"]
+        ],
+        businessPitch: [
+          "The pitch had a clear why and business idea.",
+          "The score shows serious gaps in proof of success, product/service clarity, finance, and marketing.",
+          "Not chosen in this round."
+        ],
+        finalAssessment: [
+          "The idea needs to be converted into visible proof.",
+          "Missing: customer evidence, business activity records, product/service proof, and finance tracking.",
+          "Fastest unlock: show real activity before pitching again."
+        ],
+        nextStep: "Spend the next month building evidence: photos, customers, prices, sales, costs, profit, and feedback. Re-pitch only after the page shows real proof of business activity.",
+        notion: "https://app.notion.com/p/3aa644d472d780499f41cf9cd646f60c?source=copy_link"
+      },
+      simphiweDlaminiDuct: {
+        name: "Simphiwe Dlamini",
+        business: "Bicycle & Machine Repairs",
+        organisation: "DUCT",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/34f644d472d78189a0dad794fc8641f5",
+        assessor: "Panelists 3",
+        score: "28 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", " / 3"],
+          ["Business Idea Test", " / 8"],
+          ["Innovative Product / Service", " / 15"],
+          ["Proof of Business Success", " / 30"],
+          ["Financial Management", " / 15"],
+          ["Strong Brand, Marketing, Sales", " / 20"],
+          ["Social & Environmental Impact", " / 5"],
+          ["Future Growth Prospects", " / 4"]
+        ],
+        businessPitch: [
+          "Practical repair business with useful community value.",
+          "The pitch ran out of time and needs stronger preparation.",
+          "Not chosen in this round."
+        ],
+        finalAssessment: [
+          "The business idea is practical, but the presentation and proof pack were not strong enough.",
+          "Missing: timed pitch, customer/job records, finance records, and clear funding ask.",
+          "Fastest unlock: rehearse a 5-minute pitch and show completed repair jobs with numbers."
+        ],
+        nextStep: "Prepare a timed 5-minute pitch using Problem → Service → Proof → Numbers → Clear Ask. Bring one page of key numbers: jobs completed, average price, weekly revenue, costs, profit, and exact funding need.",
+        notion: "https://app.notion.com/p/3aa644d472d780499f41cf9cd646f60c?source=copy_link"
+      },
+      snenhlanhlaDuct: {
+        name: "Snenhlanhla Madonda",
+        business: "Lashes by Snerh",
+        organisation: "DUCT",
+        region: "Central Pietermaritzburg",
+        profile: "https://app.notion.com/p/cancelo10/Lashes-by-Snerh-Snenhlanhla-Madonda-34f644d472d781d28195e1d7f6a72e2f?source=copy_link",
+        assessor: "Panelists 3",
+        score: "64 / 100",
+        result: "Not Chosen",
+        resultClass: "red",
+        rubric: [
+          ["Introduction: My Why", "3 / 3"],
+          ["Business Idea Test", "7 / 8"],
+          ["Innovative Product / Service", "11 / 15"],
+          ["Proof of Business Success", "20 / 30"],
+          ["Financial Management", "10 / 15"],
+          ["Strong Brand, Marketing, Sales", "10 / 20"],
+          ["Social & Environmental Impact", "0 / 5"],
+          ["Future Growth Prospects", "3 / 4"]
+        ],
+        businessPitch: [
+          "Practical beauty business with traction indicators and a strong score base.",
+          "Latest instruction marks this entry as Not Chosen.",
+          "Needs stronger on-the-ground visual proof and weekly evidence."
+        ],
+        finalAssessment: [
+          "Good business activity, but not selected in the final correction.",
+          "Missing: stronger visual proof of operations and consistent weekly updates.",
+          "Fastest unlock: upload clear dated photos and keep weekly evidence current."
+        ],
+        nextStep: "Upload clear dated photos of work, setup, products, customers with permission, prices, orders, and finance records. Keep the evidence updated weekly before the next pitch opportunity.",
+        notion: "https://app.notion.com/p/3aa644d472d780499f41cf9cd646f60c?source=copy_link"
+      }
+    };
+
+    const orgData = {
+      "org-love": {
+        title: "Love Umngeni",
+        intro: "12 Growers pitched. Click a Grower shelf below to see business evidence, slides, score and next support need.",
+        rows: [
+          ["Ayanda M.", "Business details · slides · evidence"],
+          ["Sipho N.", "Business details · slides · evidence"],
+          ["Zanele K.", "Business details · slides · evidence"],
+          ["Thabo R.", "Business details · slides · evidence"],
+          ["8 more pitchers", "Add pages as Notion links become available"]
+        ]
+      },
+      "org-useit": {
+        title: "Use-it",
+        intro: "8 Growers pitched. This shelf becomes the proof layer behind the organisation card.",
+        rows: [["Nomsa D.", "Business evidence shelf"], ["Bongani S.", "Business evidence shelf"], ["Lindiwe M.", "Business evidence shelf"], ["5 more pitchers", "Add pages as they are confirmed"]]
+      },
+      "org-wessa": {
+        title: "WESSA",
+        intro: "6 Growers pitched. Each person opens into their own business shelf.",
+        rows: [["Xolani Mahlangu", "Mabhoko Brush Cutter · 61 / 100"], ["Bandile Radebe", "Bandile’s Smart CVs · 51 / 100"]]
+      },
+      "org-ers": {
+        title: "ERS",
+        intro: "5 Growers pitched. Use this space for pitch decks, business proof and panel comments.",
+        rows: [["Vuyo J.", "Business evidence shelf"], ["Themba L.", "Business evidence shelf"], ["3 more pitchers", "Add pages as they are confirmed"]]
+      },
+      "org-inr": {
+        title: "INR",
+        intro: "4 Growers pitched. Each listed person can later connect to a full Notion-powered business shelf.",
+        rows: [["Nosipho M.", "Business evidence shelf"], ["Sibusiso Z.", "Business evidence shelf"], ["2 more pitchers", "Add pages as they are confirmed"]]
+      },
+      "org-liberty": {
+        title: "Liberty NPO",
+        intro: "3 Growers pitched. Renamed from Ntuli M as requested.",
+        rows: [["Sphephelo Mathonsi", "Sponza Ship Sounds · click for full evidence", "sphephelo"], ["Grower 2", "Business evidence shelf"], ["Grower 3", "Business evidence shelf"]]
+      },
+      "org-kpca": {
+        title: "KPCA",
+        intro: "3 Growers pitched. Business shelves will hold description, sector, score, panel notes and resources.",
+        rows: [["Cornelia van der Sandt", "Garden of Hope · click for full evidence", "cornelia"], ["Grower 2", "Business evidence shelf"], ["Grower 3", "Business evidence shelf"]]
+      },
+      "org-worlds": {
+        title: "Worlds View",
+        intro: "3 Growers pitched. This organisation includes Nosipho Cele moving through the shortlist.",
+        rows: [["Nosipho Cele", "Belolugaju Events & Décor · click for full evidence", "nosipho"], ["Grower 2", "Business evidence shelf"], ["Grower 3", "Business evidence shelf"]]
+      }
+    };
+
+
+    // RESTORED_MISSING_ORG_BUSINESSES
+
+
+    Object.assign(orgBusinesses, {
+      "anele": {
+        name: "Anele Phungula",
+        business: "Izithelo Zemvelo Co-Op",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "40/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Anele Phungula appears on the dashboard but did not have a working shelf object.", "The business is listed as Izithelo Zemvelo Co-Op.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 40/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "artslave": {
+        name: "Art Slave Photography",
+        business: "Art Slave Photography",
+        organisation: "NMDP",
+        region: "Howick Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "55 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Art Slave Photography appears on the dashboard but did not have a working shelf object.", "The business is listed as Art Slave Photography.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 55 / 100.", "Organisation / region: NMDP \u00b7 Howick Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "Selected for Regional because the business shows uniqueness, creative service potential, and evidence of growth readiness compared with other businesses in the region.",
+        nextStep: "Strengthen the portfolio with customer examples, pricing packages, repeat-booking proof, and a simple income tracker.",
+        notion: "#"
+      },
+      "bongeka": {
+        name: "Bongeka Zungu",
+        business: "Sukumasakhe Phinifa Boutique",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "61 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Bongeka Zungu appears on the dashboard but did not have a working shelf object.", "The business is listed as Sukumasakhe Phinifa Boutique.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 61 / 100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "Chosen for Regional after Proof of Business Success improved from 18 / 30 to 20 / 30, bringing the total score to 61 / 100.",
+        nextStep: "Make customer proof, pricing, and financial records easier to verify in one clear tracker.",
+        notion: "#"
+      },
+      "hazel": {
+        name: "Hazel Madlala",
+        business: "Hazel\u2019s Lingerie & Intimacy Shop",
+        organisation: "NMDP",
+        region: "Howick Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "49/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Hazel Madlala appears on the dashboard but did not have a working shelf object.", "The business is listed as Hazel\u2019s Lingerie & Intimacy Shop.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 49/100.", "Organisation / region: NMDP \u00b7 Howick Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "hleli": {
+        name: "Hleli Madonda",
+        business: "Hleli\u2019s Beauty Hair Salon",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "28/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Hleli Madonda appears on the dashboard but did not have a working shelf object.", "The business is listed as Hleli\u2019s Beauty Hair Salon.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 28/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "imvelo": {
+        name: "Imvelo\u2019enhle Poultry",
+        business: "Business profile",
+        organisation: "NMDP",
+        region: "Howick Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "29/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Imvelo\u2019enhle Poultry appears on the dashboard but did not have a working shelf object.", "The business is listed as Business profile.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 29/100.", "Organisation / region: NMDP \u00b7 Howick Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "nadine": {
+        name: "Nadine Vector",
+        business: "Shine On Cleaning Products",
+        organisation: "NMDP",
+        region: "Howick Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "22/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Nadine Vector appears on the dashboard but did not have a working shelf object.", "The business is listed as Shine On Cleaning Products.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 22/100.", "Organisation / region: NMDP \u00b7 Howick Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "nolwazi": {
+        name: "Nolwazi Lephenyane",
+        business: "Sweet Home Bakes",
+        organisation: "NMDP",
+        region: "Howick Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "24/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Nolwazi Lephenyane appears on the dashboard but did not have a working shelf object.", "The business is listed as Sweet Home Bakes.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 24/100.", "Organisation / region: NMDP \u00b7 Howick Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "patricia": {
+        name: "Patricia Mshembezi",
+        business: "Beadwork Pty Ltd",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "49/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Patricia Mshembezi appears on the dashboard but did not have a working shelf object.", "The business is listed as Beadwork Pty Ltd.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 49/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "qinisio": {
+        name: "Qinisio Shozi",
+        business: "Starter Business",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "42/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Qinisio Shozi appears on the dashboard but did not have a working shelf object.", "The business is listed as Starter Business.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 42/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "simphiwe": {
+        name: "Simphiwe Maphanga",
+        business: "Syndikate Productions",
+        organisation: "INR",
+        region: "Impendle Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "60 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Simphiwe Maphanga appears on the dashboard but did not have a working shelf object.", "The business is listed as Syndikate Productions.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 60 / 100.", "Organisation / region: INR \u00b7 Impendle Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "Selected for Regional because the business shows a clear creative-service offer and enough readiness to move forward for regional exposure.",
+        nextStep: "Strengthen the proof pack with portfolio examples, customer proof, pricing, and simple monthly sales records.",
+        notion: "#"
+      },
+      "thamsanqa": {
+        name: "Thamsanqa Chiliza",
+        business: "Fast Food Lovers",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "31/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Thamsanqa Chiliza appears on the dashboard but did not have a working shelf object.", "The business is listed as Fast Food Lovers.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 31/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "velile": {
+        name: "Velile Parkies",
+        business: "Recycling / Waste Recovery",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "45/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Velile Parkies appears on the dashboard but did not have a working shelf object.", "The business is listed as Recycling / Waste Recovery.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 45/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "zama": {
+        name: "Zama Mtungwa",
+        business: "Golden Fry Joint",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "60/100",
+        result: "Open for evidence review",
+        resultClass: "yellow",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Zama Mtungwa appears on the dashboard but did not have a working shelf object.", "The business is listed as Golden Fry Joint.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 60/100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "This business is included for visibility and evidence review. The shelf has been restored so the business can open and be reviewed properly.",
+        nextStep: "Update the business profile with stronger proof of customers, sales, pricing, photos, and simple financial evidence.",
+        notion: "#"
+      },
+      "zinhle": {
+        name: "Zinhle Mpeqeka",
+        business: "Zee In and Out Stylish",
+        organisation: "Use-it",
+        region: "Durban Region",
+        profile: "#",
+        assessor: "Panelists",
+        score: "61 / 100",
+        result: "Chosen to represent their Region",
+        resultClass: "green",
+        rubric: [["Introduction: My Why", "To review"], ["Business Idea Test", "To review"], ["Innovative Product / Service", "To review"], ["Proof of Business Success", "To review"], ["Financial Management", "To review"], ["Strong Brand, Marketing, Sales", "To review"], ["Social & Environmental Impact", "To review"], ["Future Growth Prospects", "To review"]],
+        businessPitch: ["Zinhle Mpeqeka appears on the dashboard but did not have a working shelf object.", "The business is listed as Zee In and Out Stylish.", "This restored shelf keeps the dashboard usable while the full evidence profile is strengthened."],
+        finalAssessment: ["Current visible score: 61 / 100.", "Organisation / region: Use-it \u00b7 Durban Region.", "Next improvement: add a clearer proof pack and finance summary."],
+        why: "Selected for Regional because the business shows active selling energy, a clear fashion offer, and early proof of business activity.",
+        nextStep: "Convert the existing cashbook into a simple weekly tracker covering stock, sales, costs, and profit.",
+        notion: "#"
+      }
+    });
+
+    const regionData = {
+      "region-howick": {
+        title: "Howick Region",
+        intro: "Regional Top 1–3. Each selected Grower opens as a shelf/card with the reason they moved forward.",
+        rows: [
+          ["Xolani Mahlangu", "Mabhoko Brush Cutter · 61 / 100 · Why — Uniqueness and Growth Potential", "xolaniTop"],
+          ["Nomvelo Zuma", "Whisked Nibbles Bakery · 70 / 100 · Chosen for the Top 5", "nomvelo"]
+        ]
+      },
+      "region-pmb": {
+        title: "Pietermaritzburg Central",
+        intro: "Regional Top 1–3. Click into each Grower for assessment evidence.",
+        rows: [["Nomsa D.", "Top 1 · evidence shelf"], ["Bongani S.", "Top 2 · evidence shelf"], ["Regional 3", "To be confirmed"]]
+      },
+      "region-durban": {
+        title: "Durban Region",
+        intro: "Regional Top 1–3. Evidence shelves show the judges' reflections and business details.",
+        rows: [
+          ["Melusi Mbotho", "Inkazimulo Creche & Pre-School · 83 / 100 · Top 5", "melusi"],
+          ["Zinhle Mpeqeka", "Zee In and Out Stylish · 61 / 100 · Chosen for Regional", "zinhle"],
+          ["Bongeka Zungu", "Sukumasakhe Phinifa Boutique · 61 / 100 · Chosen for Regional", "bongeka"]
+        ]
+      },
+      "region-ec": {
+        title: "Eastern Cape",
+        intro: "Regional Top 1–3. Each finalist opens into a business evidence shelf.",
+        rows: [["Vuyo J.", "Top 1 · evidence shelf"], ["Themba L.", "Top 2 · evidence shelf"], ["Regional 3", "To be confirmed"]]
+      },
+      "region-impendle": {
+        title: "Impendle Region",
+        intro: "Regional Top 1–3. Nosipho’s format below can be reused for any Grower moved forward.",
+        rows: [["Nosipho Cele", "Belolugaju Events & Décor · 85 / 100 · Liberty NPO", "nosipho"], ["Sibusiso Z.", "Top 2 · evidence shelf"], ["Regional 3", "To be confirmed"]]
+      }
+    };
+
+    function setHero(kicker, title, intro, image) {
+      document.getElementById("shelfKicker").textContent = kicker;
+      document.getElementById("shelfTitle").textContent = title;
+      document.getElementById("shelfIntro").textContent = intro;
+      const bgValue = image && image.startsWith("linear-gradient") ? image : (image ? `url(${image})` : "linear-gradient(135deg, #bba271, #f4ead9)");
+      document.getElementById("shelfHero").style.setProperty("--shelf-image", bgValue);
+    }
+
+    function openOverlay() {
+      document.getElementById("modalOverlay").classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeOverlay() {
+      document.getElementById("modalOverlay").classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    function rowHtml(row) {
+      const key = row[2] || "";
+      const action = key ? `data-grower="${key}"` : `data-grower-template`;
+      return `<button class="shelf-row" ${action}>
+        <div><h3>${row[0]}</h3><p>${row[1]}</p></div><span class="chev">›</span>
+      </button>`;
+    }
+
+    function openListShelf(data, kicker) {
+      setHero(kicker, data.title, data.intro, imageHotel);
+      document.getElementById("shelfBody").innerHTML = `
+        <div class="shelf-grid">${data.rows.map(rowHtml).join("")}</div>
+        <div class="shelf-divider"></div>
+        <p class="info-text">This keeps the front dashboard clean. The organisation or region card stays small, while every Grower still gets a proper shelf for evidence, slides, business profile, score and next steps.</p>
+      `;
+      openOverlay();
+    }
+
+    function openGrowerShelf(g) {
+      const pitchCover = "linear-gradient(135deg, rgba(6,21,41,.96), rgba(13,45,82,.88), rgba(244,201,93,.30))";
+      setHero("Grower Business Evidence", g.name, `${g.business} · ${g.sector}`, pitchCover);
+      const imageBlock = g.image ? `<img class="evidence-image" src="${g.image}" alt="${g.name} evidence image">` : "";
+      document.getElementById("shelfBody").innerHTML = `
+        ${imageBlock}
+        <div class="field-grid">
+          <div class="field"><label>Business</label><strong>${g.business}</strong></div>
+          <div class="field"><label>Market Sector</label><strong>${g.sector}</strong></div>
+          <div class="field"><label>Assessment Score</label><strong>${g.score}</strong></div>
+          <div class="field"><label>Organisation</label><strong>${g.organisation}</strong></div>
+          <div class="field"><label>Region</label><strong>${g.region}</strong></div>
+          <div class="field"><label>Status</label><strong>${g.status || "Chosen for the Top 5"}</strong></div>
+        </div>
+        <div class="shelf-divider"></div>
+        ${g.premiumProfile ? `
+          <section class="premium-profile">
+            <div class="premium-section">
+              <h3>Business Description</h3>
+              <p>${g.premiumProfile.businessDescription}</p>
+            </div>
+            <div class="premium-section">
+              <h3>Owner’s Vision</h3>
+              <p>${g.premiumProfile.ownersVision}</p>
+            </div>
+            <div class="premium-section">
+              <h3>What Is Working</h3>
+              <p>${g.premiumProfile.whatIsWorking}</p>
+            </div>
+            <div class="premium-section">
+              <h3>Market Demand</h3>
+              <p>${g.premiumProfile.marketDemand}</p>
+            </div>
+            <div class="premium-section">
+              <h3>Finance Evidence — 6-Month Template</h3>
+              <table class="finance-template-table">
+                <thead><tr><th>Month</th><th>Bookings</th><th>Revenue</th><th>Expenses</th><th>Profit</th></tr></thead>
+                <tbody>
+                  ${g.premiumProfile.financeRows.map(row => `
+                    <tr><td>${row[0]}</td><td>${row[1]}</td><td>${row[2]}</td><td>${row[3]}</td><td>${row[4]}</td></tr>
+                  `).join("")}
+                </tbody>
+              </table>
+            </div>
+            <div class="premium-section">
+              <h3>Marketing Evidence</h3>
+              <div class="marketing-proof-grid">
+                ${g.premiumProfile.marketingImages.slice(0,3).map((img, index) => `
+                  <button type="button" class="marketing-proof" data-lightbox-src="${img}">
+                    <img src="${img}" alt="${g.name} marketing evidence ${index + 1}">
+                  </button>
+                `).join("")}
+              </div>
+            </div>
+            <div class="premium-section">
+              <h3>Suggested Support</h3>
+              <div class="suggested-support-grid">
+                ${g.premiumProfile.suggestedSupport.slice(0,2).map(item => `
+                  <div class="support-mini-card"><strong>${item[0]}</strong><p>${item[1]}</p></div>
+                `).join("")}
+              </div>
+            </div>
+          </section>
+        ` : g.evidenceReport ? `
+          <section class="me-report">
+            <h3>${g.evidenceReport.title}</h3>
+            <p class="report-subtitle">${g.evidenceReport.subtitle}</p>
+            <div class="evidence-kpis">
+              ${g.evidenceReport.cards.map(card => `<div class="evidence-card"><label>${card[0]}</label><strong>${card[1]}</strong><p>${card[2]}</p></div>`).join("")}
+            </div>
+            <div class="evidence-priority"><h4>Priority Before Final Pitch</h4><ol>${g.evidenceReport.priorities.map(item => `<li>${item}</li>`).join("")}</ol></div>
+          </section>
+        ` : `
+          <h3>Business Description</h3>
+          <p class="info-text">${g.description}</p>
+          <div class="shelf-divider"></div>
+          <h3>Why this Grower moved forward</h3>
+          <p class="info-text">${g.why}</p>
+          <div class="shelf-divider"></div>
+          <h3>Financials · Milestones · Evidence · Assessment</h3>
+          <p class="info-text">See the full Notion assessment for financials, milestones, evidence, and assessment results.</p>
+          <div class="support-box"><h3>Clear Ask for Support</h3><p>${g.ask}</p></div>
+        `}
+      `;
+      openOverlay();
+    }
+
+
+    function openTop5Shelf(g) {
+      if (!g) return;
+
+      setHero("Grower Business Evidence", g.name, `${g.business} · ${g.sector}`, "");
+
+      const fieldRows = [
+        ["Business", g.business],
+        ["Sector", g.sector],
+        ["Score", g.score],
+        ["Organisation", g.organisation],
+        ["Region", g.region],
+        ["Status", g.status]
+      ].map(([label, value]) => {
+        const displayValue = label === "Business" && g.notionUrl
+          ? `<a class="profile-link" href="${g.notionUrl}" target="_blank" rel="noopener">${value}</a>`
+          : `<strong>${value}</strong>`;
+        return `<div class="field"><label>${label}</label>${displayValue}</div>`;
+      }).join("");
+
+      const financeTitle = g.financeTitle || "Finance Evidence — 5-Month Pilot Template";
+      const financeHeaders = g.financeHeaders || ["Month", g.financeActivityLabel || "Bookings / Sales", "Revenue", "Expenses", "Profit"];
+      const financeRows = (g.financeRows || []).map(row => `
+        <tr class="${String(row[0]).includes("Total") ? "total-row" : ""}">
+          ${row.map(cell => `<td>${cell}</td>`).join("")}
+        </tr>
+      `).join("");
+
+      const financeHeadHtml = financeHeaders.map(head => `<th>${head}</th>`).join("");
+
+      const marketingImages = (g.marketingImages || []).slice(0,3).map((img, index) => `
+        <button type="button" class="marketing-proof" data-lightbox-src="${img}">
+          <img src="${img}" alt="${g.name} marketing evidence ${index + 1}">
+        </button>
+      `).join("");
+
+      const supportOptions = (g.supportOptions || []).map(option => `
+        <span class="support-option-pill">${option}</span>
+      `).join("");
+
+      const supportPriorities = (g.supportPriorities || []).slice(0,2).map(item => `
+        <div class="support-mini-card is-priority">
+          <strong>${item[0]}</strong>
+          <p>${item[1]}</p>
+        </div>
+      `).join("");
+
+      document.getElementById("shelfBody").innerHTML = `
+        <div class="top5-opening-showcase">
+          <img src="${g.image}" alt="${g.name} featured business visual">
+        </div>
+
+        <div class="field-grid">
+          ${fieldRows}
+        </div>
+
+        <section class="premium-profile">
+          <div class="premium-section">
+            <h3>Business Description</h3>
+            <p>${g.businessDescription}</p>
+          </div>
+
+          <div class="premium-section">
+            <h3>Owner’s Vision</h3>
+            <p>${g.ownersVision}</p>
+          </div>
+
+          <div class="premium-section">
+            <h3>What Is Working</h3>
+            <p>${g.whatIsWorking}</p>
+          </div>
+
+          <div class="premium-section">
+            <h3>Market Demand</h3>
+            <p>${g.marketDemand}</p>
+          </div>
+
+          <div class="premium-section">
+            <h3>${financeTitle}</h3>
+            <table class="finance-template-table">
+              <thead><tr>${financeHeadHtml}</tr></thead>
+              <tbody>${financeRows}</tbody>
+            </table>
+          </div>
+
+          <div class="premium-section">
+            <h3>Marketing Evidence</h3>
+            <div class="marketing-proof-grid">${marketingImages}</div>
+          </div>
+
+          <div class="premium-section">
+            <h3>Suggested Support</h3>
+            <div class="support-options-line">${supportOptions}</div>
+            <div class="suggested-support-grid">${supportPriorities}</div>
+          </div>
+        </section>
+      `;
+
+      openOverlay();
+    }
+
+    document.addEventListener("click", (e) => {
+      const card = e.target.closest("[data-top5]");
+      if (!card) return;
+      const key = card.dataset.top5;
+      if (top5Growers[key]) openTop5Shelf(top5Growers[key]);
+    });
+
+
+    function openOrgBusinessShelf(b) {
+      const cover = "linear-gradient(135deg, rgba(246,239,225,.92), rgba(216,196,162,.58)), linear-gradient(135deg, #d8c4a2, #f6efe1)";
+      setHero("Organisational Business Assessment", `${b.name} — ${b.business}`, `Assessor: ${b.assessor} · Score: ${b.score}`, cover);
+
+      const rubricRows = b.rubric.map(row => `<tr><td>${row[0]}</td><td><strong>${row[1]}</strong></td></tr>`).join("");
+      const pitchItems = b.businessPitch.map(item => `<li>${item}</li>`).join("");
+      const assessmentItems = b.finalAssessment.map(item => `<li>${item}</li>`).join("");
+
+      document.getElementById("shelfBody").innerHTML = `
+        <div class="field-grid">
+          <div class="field"><label>Business Profile</label><strong>${b.business}</strong><br><a class="profile-link" href="${b.profile}" target="_blank">Open profile →</a></div>
+          <div class="field"><label>Assessor</label><strong>${b.assessor}</strong></div>
+          <div class="field"><label>Score</label><strong>${b.score}</strong></div>
+        </div>
+
+        <div class="shelf-divider"></div>
+        <h3>Rubric Scores</h3>
+        <p class="info-text">Scored using the official Pitch Day Panelist Mark Sheet.</p>
+        <table class="rubric-table">
+          <thead><tr><th>Category</th><th>Score</th></tr></thead>
+          <tbody>${rubricRows}</tbody>
+        </table>
+
+        <div class="shelf-divider"></div>
+        <h3>Business & Pitch</h3>
+        <ul class="info-text" style="padding-left:20px;">${pitchItems}</ul>
+
+        <div class="shelf-divider"></div>
+        <h3>Final Assessment</h3>
+        <div class="support-box">
+          <ul style="padding-left:20px; line-height:1.65;">${assessmentItems}</ul>
+        </div>
+
+        <div class="shelf-divider"></div>
+        <h3>Result</h3>
+        <span class="result-pill ${b.resultClass}">${b.result}</span>
+        ${b.why ? `
+          <div class="shelf-divider"></div>
+          <h3>Why — Uniqueness and Growth Potential</h3>
+          <p class="info-text">${b.why}</p>
+        ` : ""}
+
+        <div class="shelf-divider"></div>
+        <h3>Next Step</h3>
+        <p class="info-text">${b.nextStep}</p>
+        ${b.organisationAdvice ? `
+          <div class="support-box">
+            <h3>Organisation Advice</h3>
+            <p>${b.organisationAdvice}</p>
+          </div>
+        ` : ""}
+      `;
+      openOverlay();
+    }
+
+    function openOrgTemplate() {
+      setHero("Organisational Business Template", "New Organisation Pitcher Assessment", "Simple shelf for non-finalist organisational businesses, using the official Pitch Day Panelist Mark Sheet.", "linear-gradient(135deg, rgba(246,239,225,.92), rgba(216,196,162,.58))");
+      document.getElementById("shelfBody").innerHTML = `
+        <div class="template-form">
+          <div><label>Business Profile Link</label><div class="fake-input">Paste Notion business profile link</div></div>
+          <div><label>Assessor</label><div class="fake-input">Panelists / Buddies / Organisation team</div></div>
+          <div><label>Score</label><div class="fake-input">x / 100</div></div>
+          <div><label>Rubric Scores</label><div class="fake-textarea">Introduction: My Why: x / 3&#10;Business Idea Test: x / 8&#10;Innovative Product / Service: x / 15&#10;Proof of Business Success: x / 30&#10;Financial Management: x / 15&#10;Strong Brand, Marketing, Sales: x / 20&#10;Social & Environmental Impact: x / 5&#10;Future Growth Prospects: x / 4</div></div>
+          <div><label>Business & Pitch</label><div class="fake-textarea">Short bullets: active business, services/products, pitch strengths, funding request, customer proof.</div></div>
+          <div><label>Final Assessment</label><div class="fake-textarea">Clear strengths, gaps, and what evidence is still missing.</div></div>
+          <div><label>Result</label><div class="fake-input">Chosen / Not Chosen / Needs More Evidence</div></div>
+          <div><label>Next Step</label><div class="fake-textarea">What the Grower must do next: update finances, add customers, practise pitch, improve evidence.</div></div>
+        </div>
+      `;
+      openOverlay();
+    }
+
+    function openTemplate() {
+      setHero("Add Business Template", "New Grower Business Shelf", "Use this template when adding a pitcher, regional shortlist candidate, or Top 5 finalist.", imageNosipho);
+      document.getElementById("shelfBody").innerHTML = `
+        <div class="template-form">
+          <div><label>Magazine / Grower Picture</label><div class="fake-input">Paste image URL, upload file, or embed business/logo image</div></div>
+          <div><label>Business Description</label><div class="fake-textarea">Short description of what the business offers, who it serves, and why it matters.</div></div>
+          <div><label>Market Sector</label><div class="fake-input">e.g. Events & Décor, Agriculture, Food, Retail, Waste, Services</div></div>
+          <div><label>Assessment Score</label><div class="fake-input">Panel + Buddy total score: x / 100</div></div>
+          <div><label>Financials</label><div class="fake-textarea">Sales, expenses, profit, pricing, assets needed, and financial record quality.</div></div>
+          <div><label>Milestones</label><div class="fake-textarea">Pitch day, customers served, bookings, market days, certificates, production evidence.</div></div>
+          <div><label>Growth Potential</label><div class="fake-textarea">Why the business can grow; niche, demand, repeat customers, scalability, community impact.</div></div>
+          <div><label>Clear Ask for Support</label><div class="fake-textarea">What the Grower needs next: equipment, mentoring, market access, branding, funding, venue, training.</div></div>
+        </div>
+      `;
+      openOverlay();
+    }
+
+
+
+    document.addEventListener("click", (e) => {
+      const directOrgBtn = e.target.closest("[data-direct-org]");
+      if (!directOrgBtn) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      const key = directOrgBtn.dataset.directOrg;
+      if (orgBusinesses[key]) openOrgBusinessShelf(orgBusinesses[key]);
+    }, true);
+
+
+    function toggleDurbanRegion() {
+      const btn = document.querySelector('[data-panel="region-durban-panel"]');
+      const panel = document.getElementById("region-durban-panel");
+      if (!btn || !panel) return;
+      btn.classList.toggle("open");
+      panel.style.display = btn.classList.contains("open") ? "block" : "";
+    }
+    window.toggleDurbanRegion = toggleDurbanRegion;
+
+    function openDirectOrg(key) {
+      if (top5Growers && top5Growers[key]) {
+        return openTop5Shelf(top5Growers[key]);
+      }
+      if (orgBusinesses && orgBusinesses[key]) {
+        return openOrgBusinessShelf(orgBusinesses[key]);
+      }
+      if (growers && growers[key]) {
+        return openGrowerShelf(growers[key]);
+      }
+    }
+    window.openDirectOrg = openDirectOrg;
+
+
+    document.addEventListener("click", (e) => {
+      const anyOrgBtn = e.target.closest("[data-org-business]");
+      if (!anyOrgBtn) return;
+      const key = anyOrgBtn.dataset.orgBusiness;
+      if (top5Growers[key]) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openTop5Shelf(top5Growers[key]);
+      } else if (orgBusinesses[key]) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openOrgBusinessShelf(orgBusinesses[key]);
+      } else if (growers[key]) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        openGrowerShelf(growers[key]);
+      }
+    }, true);
+
+    document.querySelectorAll(".accordion-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.classList.toggle("open");
+      });
+    });
+
+    document.querySelectorAll("[data-grower-template]").forEach(btn => {
+      btn.addEventListener("click", () => openTemplate());
+    });
+document.querySelectorAll("[data-org-business]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.orgBusiness;
+        if (top5Growers[key]) return openTop5Shelf(top5Growers[key]);
+        if (orgBusinesses[key]) return openOrgBusinessShelf(orgBusinesses[key]);
+        if (growers[key]) return openGrowerShelf(growers[key]);
+      });
+    });
+
+    document.querySelectorAll("[data-modal]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.modal;
+        if (key === "template-business" || key === "locked-view") return;
+        if (orgData[key]) return openListShelf(orgData[key], "Organisation Pitch Shelf");
+        if (regionData[key]) return openListShelf(regionData[key], "Regional Shortlist Shelf");
+        if (key === "top-nosipho") return openGrowerShelf(growers.nosipho);
+        if (key === "top-cornelia") return openGrowerShelf(growers.corneliaTop || growers.cornelia);
+        if (key === "top-sphephelo") return openGrowerShelf(growers.sphephelo);
+        if (key === "top-nomvelo") return openGrowerShelf(growers.nomvelo);
+        if (key === "top-melusi") return openGrowerShelf(growers.melusiTop);
+        if (key === "top-xolani") return openGrowerShelf(growers.xolaniTop);
+        if (key === "top-cornelia") return openGrowerShelf(growers.corneliaTop || growers.cornelia);
+        return openTemplate();
+      });
+    });
+
+
+    document.querySelectorAll("[data-grower]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.grower;
+        if (growers[key]) return openGrowerShelf(growers[key]);
+        if (top5Growers[key]) return openTop5Shelf(top5Growers[key]);
+        if (orgBusinesses[key]) return openOrgBusinessShelf(orgBusinesses[key]);
+      });
+    });
+
+    document.getElementById("shelfBody").addEventListener("click", (e) => {
+      const growerBtn = e.target.closest("[data-grower]");
+      if (!growerBtn) return;
+      const key = growerBtn.dataset.grower;
+      if (growers[key]) return openGrowerShelf(growers[key]);
+      if (top5Growers[key]) return openTop5Shelf(top5Growers[key]);
+      if (orgBusinesses[key]) return openOrgBusinessShelf(orgBusinesses[key]);
+      openTemplate();
+    });
+
+    document.getElementById("shelfBody").addEventListener("click", (e) => {
+      const proofBtn = e.target.closest("[data-lightbox-src]");
+      if (!proofBtn) return;
+      const lightbox = document.getElementById("imageLightbox");
+      const lightboxImage = document.getElementById("lightboxImage");
+      lightboxImage.src = proofBtn.dataset.lightboxSrc;
+      lightbox.classList.add("open");
+    });
+
+    document.addEventListener("click", (e) => {
+      const orgBtn = e.target.closest("[data-org-business]");
+      if (!orgBtn) return;
+      const key = orgBtn.dataset.orgBusiness;
+      if (orgBusinesses[key]) openOrgBusinessShelf(orgBusinesses[key]);
+    });
+
+    document.getElementById("closeImageLightbox").addEventListener("click", () => {
+      document.getElementById("imageLightbox").classList.remove("open");
+      document.getElementById("lightboxImage").src = "";
+    });
+
+    document.getElementById("imageLightbox").addEventListener("click", (e) => {
+      if (e.target.id === "imageLightbox") {
+        document.getElementById("imageLightbox").classList.remove("open");
+        document.getElementById("lightboxImage").src = "";
+      }
+    });
+
+    document.getElementById("closeShelf").addEventListener("click", closeOverlay);
+    document.getElementById("modalOverlay").addEventListener("click", (e) => {
+      if (e.target.id === "modalOverlay") closeOverlay();
+    });
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        const lightbox = document.getElementById("imageLightbox");
+        if (lightbox && lightbox.classList.contains("open")) {
+          lightbox.classList.remove("open");
+          document.getElementById("lightboxImage").src = "";
+          return;
+        }
+        closeOverlay();
+      }
+    });
+  </script>
+</body>
+</html>
